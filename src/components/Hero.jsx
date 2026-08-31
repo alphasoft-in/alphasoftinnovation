@@ -58,20 +58,19 @@ export default function Hero() {
           </motion.div>
           
           <motion.h1 variants={itemVariants} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 md:mb-8 leading-tight md:leading-tight">
-            El puente entre la <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500">creatividad y la tecnología</span>
+            El puente entre la <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500">creatividad y la tecnología</span>
           </motion.h1>
           
-          <motion.p variants={itemVariants} className="max-w-2xl text-base md:text-xl text-slate-400 mx-auto mb-8 md:mb-12 px-2 sm:px-0 leading-relaxed">
+          <motion.p variants={itemVariants} className="max-w-2xl text-base md:text-xl text-slate-400 mx-auto mb-10 px-2 sm:px-0 leading-relaxed">
             Optimizamos el rendimiento de tu empresa con software a medida. Transformamos ideas en soluciones escalables.
           </motion.p>
           
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-5 justify-center items-center w-full max-w-md mx-auto sm:max-w-none">
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <motion.a 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               href="/servicios" 
-              className="w-full sm:w-auto px-8 py-3.5 md:py-4 bg-white text-slate-950 font-semibold rounded-full hover:bg-slate-200 transition-colors duration-200 shadow-[0_0_20px_rgba(255,255,255,0.3)] cursor-pointer text-sm md:text-base"
+              className="w-[260px] sm:w-auto px-8 py-3.5 bg-white text-slate-950 font-semibold rounded-full hover:bg-slate-200 transition-colors duration-200 shadow-[0_0_20px_rgba(255,255,255,0.3)] cursor-pointer text-sm md:text-base"
             >
               Nuestros Servicios
             </motion.a>
@@ -79,7 +78,7 @@ export default function Hero() {
               whileHover={{ scale: 1.05, backgroundColor: "rgba(30, 41, 59, 0.5)" }}
               whileTap={{ scale: 0.95 }}
               href="/contacto" 
-              className="w-full sm:w-auto px-8 py-3.5 md:py-4 bg-transparent border border-slate-700 text-white font-medium rounded-full transition-colors duration-200 cursor-pointer text-sm md:text-base"
+              className="w-[260px] sm:w-auto px-8 py-3.5 bg-transparent border border-slate-700 text-white font-medium rounded-full transition-colors duration-200 cursor-pointer text-sm md:text-base"
             >
               Hablemos de tu proyecto
             </motion.a>
