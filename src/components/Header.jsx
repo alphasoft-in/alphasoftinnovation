@@ -60,6 +60,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
             <button 
+              aria-label={mobileMenuOpen ? "Cerrar menú principal" : "Abrir menú principal"}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="text-slate-300 hover:text-white cursor-pointer"
             >
