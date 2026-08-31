@@ -85,6 +85,7 @@ export default function Hero() {
               Hablemos de tu proyecto
             </motion.a>
           </motion.div>
+        </motion.div>
         </div>
         
         {/* Mockup / Dashboard Preview abstract */}
