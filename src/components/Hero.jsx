@@ -36,7 +36,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center">
+    <section className="relative pt-24 md:pt-32 pb-16 md:pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center">
       {/* Decorative elements */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/20 rounded-full blur-[120px] pointer-events-none"></div>
       
@@ -48,22 +48,22 @@ export default function Hero() {
           animate="visible"
           className="flex flex-col items-center"
         >
-          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/50 border border-slate-700/50 backdrop-blur-sm mb-8">
+          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/50 border border-slate-700/50 backdrop-blur-sm mb-6 md:mb-8">
             <motion.span 
               animate={{ opacity: [1, 0.4, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
               className="flex h-2 w-2 rounded-full bg-cyan-400"
             />
-            <span className="text-sm font-medium text-slate-300">Soluciones Tecnológicas en Perú</span>
+            <span className="text-xs md:text-sm font-medium text-slate-300">Soluciones Tecnológicas en Perú</span>
           </motion.div>
           
-          <motion.h1 variants={itemVariants} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 leading-tight md:leading-tight">
+          <motion.h1 variants={itemVariants} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 md:mb-8 leading-tight md:leading-tight">
             El puente entre la <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500">creatividad y la tecnología</span>
           </motion.h1>
           
-          <motion.p variants={itemVariants} className="max-w-2xl text-base md:text-xl text-slate-400 mx-auto mb-12 px-2 sm:px-0 leading-relaxed">
-            Optimizamos el rendimiento empresarial con desarrollo de software y consultoría tecnológica a medida. Transformamos ideas en soluciones escalables.
+          <motion.p variants={itemVariants} className="max-w-2xl text-base md:text-xl text-slate-400 mx-auto mb-8 md:mb-12 px-2 sm:px-0 leading-relaxed">
+            Optimizamos el rendimiento de tu empresa con software a medida. Transformamos ideas en soluciones escalables.
           </motion.p>
           
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-5 justify-center items-center w-full max-w-md mx-auto sm:max-w-none">
