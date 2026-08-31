@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.jsx';
 import Hero from '../components/Hero.jsx';
 import About from '../components/About.jsx';
+import Technologies from '../components/Technologies.jsx';
 import Services from '../components/Services.jsx';
 import Footer from '../components/Footer.jsx';
 
@@ -13,9 +14,10 @@ import Footer from '../components/Footer.jsx';
 <Layout title="Inicio">
 	<Header client:load />
 	<main>
-		<Hero />
-		<About />
-		<Services />
+		<Hero client:load />
+		<About client:visible />
+		<Technologies client:visible />
+		<Services client:visible />
 	</main>
-	<Footer />
+	<Footer client:visible />
 </Layout>
