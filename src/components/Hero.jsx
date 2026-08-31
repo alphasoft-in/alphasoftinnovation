@@ -36,11 +36,11 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative pt-24 md:pt-32 pb-16 md:pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center">
+    <section className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen">
       {/* Decorative elements */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/20 rounded-full blur-[120px] pointer-events-none"></div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
         
         <motion.div 
           variants={containerVariants}
