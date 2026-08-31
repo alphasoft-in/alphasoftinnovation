@@ -35,11 +35,11 @@ export default function CookieBanner() {
           transition={{ type: 'spring', stiffness: 100, damping: 20 }}
           className="fixed bottom-0 left-0 right-0 z-[100] p-4 md:p-6 pointer-events-none"
         >
-          <div className="max-w-5xl mx-auto bg-slate-900/95 backdrop-blur-md border border-slate-700/50 shadow-2xl rounded-2xl p-5 md:p-6 flex flex-col md:flex-row items-center justify-between gap-6 pointer-events-auto">
+          <div className="max-w-4xl mx-auto bg-slate-900/95 backdrop-blur-md border border-slate-700/50 shadow-2xl rounded-2xl p-3 md:p-4 flex flex-col md:flex-row items-center justify-between gap-4 pointer-events-auto">
             
-            <div className="flex-1 text-slate-300 text-sm leading-relaxed">
-              <h4 className="text-white font-semibold mb-1 text-base flex items-center gap-2">
-                <svg className="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="flex-1 text-slate-300 text-xs leading-relaxed">
+              <h4 className="text-white font-semibold mb-1 text-sm flex items-center gap-2">
+                <svg className="w-4 h-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
                 Privacidad y Cookies
@@ -49,16 +49,16 @@ export default function CookieBanner() {
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0">
+            <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto shrink-0">
               <button 
                 onClick={declineCookies}
-                className="px-6 py-2.5 rounded-lg border border-slate-700 text-slate-300 font-medium hover:bg-slate-800 transition-colors cursor-pointer"
+                className="px-4 py-1.5 text-xs rounded-lg border border-slate-700 text-slate-300 font-medium hover:bg-slate-800 transition-colors cursor-pointer"
               >
                 Rechazar
               </button>
               <button 
                 onClick={acceptCookies}
-                className="px-6 py-2.5 rounded-lg bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-bold hover:shadow-lg hover:shadow-cyan-500/25 transition-all cursor-pointer"
+                className="px-4 py-1.5 text-xs rounded-lg bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-bold hover:shadow-lg hover:shadow-cyan-500/25 transition-all cursor-pointer"
               >
                 Aceptar Cookies
               </button>
