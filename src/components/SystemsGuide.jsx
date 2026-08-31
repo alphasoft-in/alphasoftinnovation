@@ -120,18 +120,18 @@ export default function SystemsGuide() {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mt-16 text-center bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-700 rounded-3xl p-8 lg:p-12 relative overflow-hidden"
+        className="mt-12 text-center bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-700 rounded-3xl p-6 lg:p-8 relative overflow-hidden"
       >
         <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-[80px]"></div>
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-violet-500/10 rounded-full blur-[80px]"></div>
         
-        <h3 className="text-xl md:text-2xl font-bold text-white mb-3 relative z-10">¿No sabes por cuál empezar?</h3>
-        <p className="text-slate-300 text-sm max-w-2xl mx-auto mb-6 relative z-10">
+        <h3 className="text-lg md:text-xl font-bold text-white mb-2 relative z-10">¿No sabes por cuál empezar?</h3>
+        <p className="text-slate-300 text-xs md:text-sm max-w-2xl mx-auto mb-5 relative z-10">
           Como expertos en desarrollo a medida, no solo te vendemos un software; analizamos tu flujo de trabajo y construimos exactamente el módulo que necesitas para solucionar tu cuello de botella actual, integrándolo todo a tu propio ritmo.
         </p>
         <a 
           href="/contacto"
-          className="inline-block px-8 py-4 bg-white text-slate-950 font-bold rounded-full hover:bg-slate-200 transition-colors relative z-10 shadow-[0_0_20px_rgba(255,255,255,0.2)] cursor-pointer"
+          className="inline-block px-6 py-2.5 text-sm bg-white text-slate-950 font-bold rounded-full hover:bg-slate-200 transition-colors relative z-10 shadow-[0_0_15px_rgba(255,255,255,0.15)] cursor-pointer"
         >
           Solicita una Consultoría Gratuita
         </a>
