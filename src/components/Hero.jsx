@@ -36,18 +36,20 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen">
+    <section className="relative overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/20 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-cyan-500/20 rounded-full blur-[120px] pointer-events-none"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-col items-center"
-        >
+        {/* Viewport container for text and buttons */}
+        <div className="min-h-[100dvh] flex flex-col justify-center pt-24 pb-12">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-col items-center"
+          >
           <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/50 border border-slate-700/50 backdrop-blur-sm mb-6 md:mb-8">
             <motion.span 
               animate={{ opacity: [1, 0.4, 1] }}
@@ -83,14 +85,14 @@ export default function Hero() {
               Hablemos de tu proyecto
             </motion.a>
           </motion.div>
-        </motion.div>
+        </div>
         
         {/* Mockup / Dashboard Preview abstract */}
         <motion.div 
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5, type: 'spring' }}
-          className="mt-20 relative mx-auto max-w-5xl"
+          className="relative mx-auto max-w-5xl pb-20 lg:pb-32"
         >
           <motion.div variants={floatVariants} animate="animate">
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-10 top-1/2"></div>
