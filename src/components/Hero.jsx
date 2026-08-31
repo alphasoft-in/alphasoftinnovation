@@ -36,7 +36,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="inicio" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center">
+    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center">
       {/* Decorative elements */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/20 rounded-full blur-[120px] pointer-events-none"></div>
       
@@ -70,16 +70,16 @@ export default function Hero() {
             <motion.a 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="#servicios" 
-              className="px-8 py-4 bg-white text-slate-950 font-semibold rounded-full hover:bg-slate-200 transition-colors duration-200 shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+              href="/servicios" 
+              className="px-8 py-4 bg-white text-slate-950 font-semibold rounded-full hover:bg-slate-200 transition-colors duration-200 shadow-[0_0_20px_rgba(255,255,255,0.3)] cursor-pointer"
             >
               Nuestros Servicios
             </motion.a>
             <motion.a 
               whileHover={{ scale: 1.05, backgroundColor: "rgba(30, 41, 59, 0.5)" }}
               whileTap={{ scale: 0.95 }}
-              href="#contacto" 
-              className="px-8 py-4 bg-transparent border border-slate-700 text-white font-medium rounded-full transition-colors duration-200"
+              href="/contacto" 
+              className="px-8 py-4 bg-transparent border border-slate-700 text-white font-medium rounded-full transition-colors duration-200 cursor-pointer"
             >
               Hablemos de tu proyecto
             </motion.a>

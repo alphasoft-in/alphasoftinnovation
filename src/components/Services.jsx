@@ -2,6 +2,16 @@ import { motion } from 'framer-motion';
 
 const services = [
   {
+    title: 'Diseño y Desarrollo Web',
+    description: 'Creación de páginas web modernas, atractivas y altamente funcionales para potenciar tu presencia digital.',
+    icon: (
+      <svg className="w-6 h-6 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+      </svg>
+    ),
+    gradient: 'from-pink-500/20 to-transparent'
+  },
+  {
     title: 'Sistemas a Medida',
     description: 'Diseño y creación de aplicaciones o sistemas web adaptados a las solicitudes específicas de cada negocio.',
     icon: (
@@ -22,8 +32,8 @@ const services = [
     gradient: 'from-violet-500/20 to-transparent'
   },
   {
-    title: 'Análisis de Datos',
-    description: 'Extracción y transformación de datos mediante Business Intelligence para facilitar la toma de decisiones estratégicas e informadas.',
+    title: 'Ciencia y Análisis de Datos',
+    description: 'Extracción, modelado y transformación de datos usando algoritmos avanzados e Inteligencia Artificial para predecir tendencias y facilitar la toma de decisiones estratégicas.',
     icon: (
       <svg className="w-6 h-6 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -89,7 +99,7 @@ export default function Services() {
   };
 
   return (
-    <section id="servicios" className="py-24 bg-slate-900/50 overflow-hidden">
+    <section className="py-24 bg-slate-900/50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <motion.div 

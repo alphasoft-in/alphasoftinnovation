@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export default function About() {
   return (
-    <section id="nosotros" className="py-24 relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
@@ -65,7 +65,7 @@ export default function About() {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Sobre AlphaSoft Innovation Technology</h2>
             <p className="text-lg text-slate-400 mb-6">
-              Somos una empresa peruana privada <strong className="text-white">especialista en desarrollo de software</strong> y consultoría tecnológica. Nuestra misión es construir un ecosistema digital donde las empresas puedan operar a su máxima capacidad.
+              Somos una empresa peruana privada <strong className="text-white">especialista en diseño web, desarrollo de software, ciencia de datos</strong> y consultoría tecnológica. Nuestra misión es construir un ecosistema digital donde las empresas puedan operar a su máxima capacidad.
             </p>
             <p className="text-lg text-slate-400 mb-8">
               Contamos con amplia experiencia creando soluciones robustas para sectores altamente exigentes como la <strong className="text-white">minería, agricultura</strong> y otras industrias clave. Nuestra agilidad nos permite ofrecer soluciones personalizadas, garantizando calidad e innovación en cada línea de código.

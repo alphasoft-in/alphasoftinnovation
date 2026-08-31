@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer id="contacto" className="bg-slate-950 border-t border-slate-800 pt-16 pb-8">
+    <footer className="bg-slate-950 border-t border-slate-800 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           
@@ -21,9 +21,12 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4">Enlaces Rápidos</h4>
             <ul className="space-y-2">
-              <li><a href="#inicio" className="text-slate-400 hover:text-cyan-400 transition-colors">Inicio</a></li>
-              <li><a href="#nosotros" className="text-slate-400 hover:text-cyan-400 transition-colors">Nosotros</a></li>
-              <li><a href="#servicios" className="text-slate-400 hover:text-cyan-400 transition-colors">Servicios</a></li>
+              <li><a href="/" className="text-slate-400 hover:text-cyan-400 transition-colors">Inicio</a></li>
+              <li><a href="/nosotros" className="text-slate-400 hover:text-cyan-400 transition-colors">Nosotros</a></li>
+              <li><a href="/servicios" className="text-slate-400 hover:text-cyan-400 transition-colors">Servicios</a></li>
+              <li><a href="/sistemas" className="text-slate-400 hover:text-cyan-400 transition-colors">Sistemas</a></li>
+              <li><a href="/a-medida" className="text-slate-400 hover:text-cyan-400 transition-colors">A Medida</a></li>
+              <li><a href="/contacto" className="text-slate-400 hover:text-cyan-400 transition-colors">Contacto</a></li>
             </ul>
           </div>
           
@@ -53,11 +56,11 @@ export default function Footer() {
         
         <div className="pt-8 border-t border-slate-800 text-center md:flex md:justify-between md:items-center">
           <p className="text-slate-500 text-sm">
-            &copy; {new Date().getFullYear()} AlphaSoft Innovation Technology. Todos los derechos reservados.
+            &copy; {new Date().getFullYear()} Alphasoft Innovation Technology. RUC: 20612026387. Todos los derechos reservados.
           </p>
           <div className="mt-4 md:mt-0 flex justify-center gap-4 text-sm text-slate-500">
-            <a href="#" className="hover:text-white transition-colors">Términos de Servicio</a>
-            <a href="#" className="hover:text-white transition-colors">Privacidad</a>
+            <a href="/terminos" className="hover:text-white transition-colors">Términos de Servicio</a>
+            <a href="/privacidad" className="hover:text-white transition-colors">Privacidad</a>
           </div>
         </div>
       </div>

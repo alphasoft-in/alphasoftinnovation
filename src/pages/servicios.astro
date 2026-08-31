@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.jsx';
+import Services from '../components/Services.jsx';
+import Footer from '../components/Footer.jsx';
+---
+
+<Layout title="Servicios">
+	<Header client:load />
+	<main class="pt-28">
+		<Services client:visible />
+	</main>
+	<Footer client:visible />
+</Layout>

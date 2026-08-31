@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.jsx';
+import Footer from '../components/Footer.jsx';
+---
+
+<Layout title="Términos y Condiciones">
+	<Header client:load />
+	<main class="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+		<h1 class="text-3xl md:text-5xl font-bold mb-10 text-white">Términos y <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500">Condiciones de Servicio</span></h1>
+		
+		<div class="space-y-10 text-slate-300 leading-relaxed text-justify">
+			
+			<section>
+				<h2 class="text-xl font-bold text-white mb-4">1. Identificación de las Partes y Aceptación</h2>
+				<p class="mb-3">
+					El presente documento establece los Términos y Condiciones Generales (en adelante, los "Términos") que regulan el acceso, navegación y uso de los servicios prestados por <strong>Alphasoft Innovation Technology</strong>, con R.U.C. N° 20612026387, debidamente constituida bajo las leyes de la República del Perú (en adelante, "La Empresa").
+				</p>
+				<p>
+					Al contratar, acceder o utilizar cualquiera de nuestros servicios de consultoría, desarrollo de software o facturación electrónica (en adelante, los "Servicios"), el cliente o usuario (en adelante, "El Cliente") declara haber leído, comprendido y aceptado expresa e irrevocablemente sujetarse a los presentes Términos, los cuales tienen carácter vinculante.
+				</p>
+			</section>
+
+			<section>
+				<h2 class="text-xl font-bold text-white mb-4">2. Objeto de los Servicios</h2>
+				<p>
+					La Empresa brinda servicios especializados orientados a la transformación digital corporativa, incluyendo, de manera enunciativa mas no limitativa: (i) diseño y desarrollo de software a medida, (ii) implementación de sistemas de facturación electrónica homologados, (iii) integración de infraestructuras (API, ERP), (iv) automatización de procesos y (v) consultoría en Business Intelligence.
+				</p>
+			</section>
+
+			<section>
+				<h2 class="text-xl font-bold text-white mb-4">3. Propiedad Intelectual e Industrial</h2>
+				<p class="mb-3">
+					Todos los derechos de propiedad intelectual e industrial relativos a la plataforma, código fuente, algoritmos, metodologías, diseños de interfaz y secretos comerciales derivados de los Servicios prestados son y continuarán siendo titularidad exclusiva de La Empresa, salvo pacto expreso en contrario estipulado mediante contrato escrito y suscrito por representantes legales.
+				</p>
+				<p>
+					La Empresa otorga a El Cliente una licencia de uso personal, intransferible, no exclusiva y revocable respecto al software desarrollado o suministrado, estrictamente limitada al uso operativo y comercial interno de El Cliente, quedando prohibida la ingeniería inversa, sublicenciamiento, distribución o reproducción no autorizada.
+				</p>
+			</section>
+
+			<section>
+				<h2 class="text-xl font-bold text-white mb-4">4. Confidencialidad y Manejo de Información</h2>
+				<p>
+					Ambas partes acuerdan mantener en estricta reserva y confidencialidad toda la información financiera, técnica, operativa o comercial (la "Información Confidencial") intercambiada para la ejecución de los Servicios. La obligación de confidencialidad subsistirá incluso tras la terminación de la relación contractual, no pudiendo revelarse dicha información a terceros sin autorización previa, salvo requerimiento judicial o mandato de autoridad competente.
+				</p>
+			</section>
+
+			<section>
+				<h2 class="text-xl font-bold text-white mb-4">5. Limitación de Responsabilidad</h2>
+				<p class="mb-3">
+					Los Servicios se proporcionan "tal cual" (as is). En la máxima medida permitida por la legislación aplicable, La Empresa no será responsable por ningún daño indirecto, lucro cesante, pérdida de ingresos, interrupción del negocio o pérdida de datos que resulte del uso o la imposibilidad de uso de los sistemas provistos.
+				</p>
+				<p>
+					La responsabilidad acumulada total de La Empresa derivada de cualquier disputa contractual o extracontractual estará limitada, en todos los casos, al monto total pagado por El Cliente a La Empresa por el servicio específico causante de la disputa durante los tres (3) meses inmediatamente anteriores al hecho que generó el reclamo.
+				</p>
+			</section>
+
+			<section>
+				<h2 class="text-xl font-bold text-white mb-4">6. Independencia de las Cláusulas</h2>
+				<p>
+					Si cualquier autoridad competente determinase que alguna de las disposiciones de estos Términos es nula, inválida o ineficaz, dicha declaración no afectará la validez o exigibilidad de las restantes disposiciones, las cuales mantendrán plena vigencia y efecto.
+				</p>
+			</section>
+
+			<section>
+				<h2 class="text-xl font-bold text-white mb-4">7. Ley Aplicable y Solución de Controversias</h2>
+				<p>
+					El presente instrumento se rige y se interpretará de conformidad con las leyes de la República del Perú. Para la resolución de cualquier controversia, discrepancia, o reclamación derivada de la interpretación, ejecución o validez de estos Términos, las partes renuncian expresamente al fuero de sus domicilios y se someten irrevocablemente a la jurisdicción y competencia de los jueces y tribunales del Distrito Judicial de Lima, Cercado, Perú.
+				</p>
+			</section>
+			
+			<div class="mt-12 pt-8 border-t border-slate-800 text-sm text-slate-500">
+				<p><strong>Fecha de vigencia:</strong> Agosto de 2026</p>
+				<p>Este documento constituye un acuerdo legalmente vinculante. Para consultas legales, diríjase a: hola@alphasoftinnovation.com</p>
+			</div>
+		</div>
+	</main>
+	<Footer client:visible />
+</Layout>

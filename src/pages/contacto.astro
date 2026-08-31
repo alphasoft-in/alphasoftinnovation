@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.jsx';
+import Contact from '../components/Contact.jsx';
+import Footer from '../components/Footer.jsx';
+---
+
+<Layout title="Contacto">
+	<Header client:load />
+	<main class="pt-28">
+		<Contact client:visible />
+	</main>
+	<Footer client:visible />
+</Layout>

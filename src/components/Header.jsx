@@ -3,8 +3,10 @@ import { useState, useEffect } from 'react';
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [currentPath, setCurrentPath] = useState('');
 
   useEffect(() => {
+    setCurrentPath(window.location.pathname);
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
@@ -13,10 +15,12 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { name: 'Inicio', href: '#inicio' },
-    { name: 'Nosotros', href: '#nosotros' },
-    { name: 'Servicios', href: '#servicios' },
-    { name: 'Contacto', href: '#contacto' },
+    { name: 'Inicio', href: '/' },
+    { name: 'Nosotros', href: '/nosotros' },
+    { name: 'Servicios', href: '/servicios' },
+    { name: 'Sistemas', href: '/sistemas' },
+    { name: 'A Medida', href: '/a-medida' },
+    { name: 'Contacto', href: '/contacto' },
   ];
 
   return (
@@ -33,19 +37,22 @@ export default function Header() {
           </div>
           
           <nav className="hidden md:flex space-x-8">
-            {navLinks.map((link) => (
-              <a 
-                key={link.name} 
-                href={link.href}
-                className="text-slate-300 hover:text-white transition-colors duration-200 text-sm font-medium"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = link.href === '/' ? currentPath === '/' : currentPath.startsWith(link.href);
+              return (
+                <a 
+                  key={link.name} 
+                  href={link.href}
+                  className={`transition-colors duration-200 text-sm font-medium ${isActive ? 'text-cyan-400' : 'text-slate-300 hover:text-white'}`}
+                >
+                  {link.name}
+                </a>
+              );
+            })}
           </nav>
           
           <div className="hidden md:flex">
-            <a href="tel:959464155" className="bg-white/10 hover:bg-white/20 text-white px-5 py-2 rounded-full font-medium transition-all border border-white/10 hover:border-white/30 backdrop-blur-sm">
+            <a href="tel:959464155" className="bg-white/10 hover:bg-white/20 text-white px-5 py-2 rounded-full font-medium transition-all border border-white/10 hover:border-white/30 backdrop-blur-sm cursor-pointer">
               Agendar Asesoría
             </a>
           </div>
@@ -54,7 +61,7 @@ export default function Header() {
           <div className="md:hidden flex items-center">
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-slate-300 hover:text-white"
+              className="text-slate-300 hover:text-white cursor-pointer"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {mobileMenuOpen ? (
@@ -72,16 +79,19 @@ export default function Header() {
       {mobileMenuOpen && (
         <div className="md:hidden bg-slate-900 border-b border-slate-800">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 rounded-md"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = link.href === '/' ? currentPath === '/' : currentPath.startsWith(link.href);
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`block px-3 py-2 text-base font-medium rounded-md ${isActive ? 'text-cyan-400 bg-slate-800' : 'text-slate-300 hover:text-white hover:bg-slate-800'}`}
+                >
+                  {link.name}
+                </a>
+              );
+            })}
           </div>
         </div>
       )}

@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.jsx';
+import Footer from '../components/Footer.jsx';
+---
+
+<Layout title="Política de Privacidad">
+	<Header client:load />
+	<main class="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+		<h1 class="text-3xl md:text-5xl font-bold mb-10 text-white">Política de <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500">Privacidad</span></h1>
+		
+		<div class="space-y-10 text-slate-300 leading-relaxed text-justify">
+			
+			<section>
+				<h2 class="text-xl font-bold text-white mb-4">1. Marco Normativo y Objetivo</h2>
+				<p>
+					El presente documento establece la Política de Privacidad y Tratamiento de Datos Personales de <strong>Alphasoft Innovation Technology</strong>, con R.U.C. N° 20612026387 (en adelante, "La Empresa"). Esta política ha sido elaborada en estricto cumplimiento de la Ley N° 29733, Ley de Protección de Datos Personales de la República del Perú, su Reglamento aprobado mediante Decreto Supremo N° 003-2013-JUS, y normativas modificatorias o conexas.
+				</p>
+			</section>
+
+			<section>
+				<h2 class="text-xl font-bold text-white mb-4">2. Identidad y Domicilio del Titular del Banco de Datos</h2>
+				<p>
+					La Empresa, con domicilio procesal en la ciudad de Lima, Perú, es la titular y responsable de los Bancos de Datos Personales donde se almacena y procesa la información provista voluntariamente por nuestros clientes, proveedores y prospectos (en adelante, "Los Titulares").
+				</p>
+			</section>
+
+			<section>
+				<h2 class="text-xl font-bold text-white mb-4">3. Finalidad del Tratamiento de Datos</h2>
+				<p class="mb-3">
+					Los datos personales facilitados por Los Titulares serán recolectados y sometidos a tratamiento automatizado y no automatizado para las siguientes finalidades legítimas y explícitas:
+				</p>
+				<ul class="list-disc pl-5 space-y-2">
+					<li>Ejecución de las prestaciones derivadas del contrato de prestación de servicios, incluyendo el desarrollo de software y facturación electrónica.</li>
+					<li>Emisión de comprobantes de pago y cumplimiento de obligaciones fiscales ante la Superintendencia Nacional de Aduanas y de Administración Tributaria (SUNAT).</li>
+					<li>Envío de comunicaciones técnico-operativas, cotizaciones y respuestas a solicitudes.</li>
+					<li>Envío de comunicaciones comerciales y/o publicitarias sobre nuevos servicios, previo consentimiento expreso.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2 class="text-xl font-bold text-white mb-4">4. Consentimiento Previo y Expreso</h2>
+				<p>
+					Al registrar sus datos en nuestros formularios o al comunicarse formalmente con La Empresa, El Titular otorga su consentimiento libre, previo, expreso, inequívoco e informado para el tratamiento de sus datos personales bajo los términos aquí descritos. La Empresa garantiza que la información no será compartida, cedida ni comercializada a terceros sin autorización judicial o consentimiento previo, a excepción de proveedores de infraestructura cloud estrictamente necesarios para la operatividad de los servicios.
+				</p>
+			</section>
+
+			<section>
+				<h2 class="text-xl font-bold text-white mb-4">5. Medidas de Seguridad</h2>
+				<p>
+					En cumplimiento del principio de seguridad, La Empresa ha adoptado e implementado las medidas técnicas, organizativas y legales requeridas por la Autoridad Nacional de Protección de Datos Personales (ANPD) para evitar la alteración, pérdida, tratamiento o acceso no autorizado a los datos personales, asegurando la confidencialidad de la información, particularmente aquella que posea carácter sensible o tributario.
+				</p>
+			</section>
+
+			<section>
+				<h2 class="text-xl font-bold text-white mb-4">6. Ejercicio de los Derechos ARCO</h2>
+				<p>
+					Los Titulares de los datos personales conservan en todo momento el derecho a ejercer sus derechos de <strong>Acceso, Rectificación, Cancelación y Oposición (Derechos ARCO)</strong>. Para el ejercicio de dichos derechos, El Titular deberá dirigir una solicitud expresa, adjuntando copia de su Documento Nacional de Identidad o documento equivalente, al correo electrónico legal designado: <a href="mailto:hola@alphasoftinnovation.com" class="text-violet-400 hover:underline">hola@alphasoftinnovation.com</a>, la cual será atendida en los plazos establecidos por ley.
+				</p>
+			</section>
+			
+			<div class="mt-12 pt-8 border-t border-slate-800 text-sm text-slate-500">
+				<p><strong>Fecha de vigencia:</strong> Agosto de 2026</p>
+				<p>La Empresa se reserva el derecho de modificar la presente política para adaptarla a novedades legislativas o jurisprudenciales peruanas.</p>
+			</div>
+		</div>
+	</main>
+	<Footer client:visible />
+</Layout>
