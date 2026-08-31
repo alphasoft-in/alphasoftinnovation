@@ -61,18 +61,18 @@ export default function ErpSection() {
             <h2 className="text-xs font-bold tracking-widest text-cyan-400 uppercase mb-3">
               Transformación Digital
             </h2>
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-5 md:mb-6 leading-snug md:leading-tight">
               Un <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500">ERP</span> es el verdadero motor de tu crecimiento
             </h3>
             
-            <div className="space-y-5 text-base text-slate-300">
+            <div className="space-y-4 md:space-y-5 text-sm md:text-base text-slate-300 leading-relaxed">
               <p>
                 En el entorno competitivo actual, operar con hojas de cálculo o sistemas desconectados no solo te hace perder tiempo, sino que <strong>te está haciendo perder dinero</strong>. 
               </p>
               <p>
                 Un sistema <strong>ERP (Planificación de Recursos Empresariales)</strong> desarrollado a medida actúa como el sistema nervioso central de tu empresa. Conecta tu inventario con tus ventas, automatiza tu contabilidad y te brinda visibilidad total sobre qué está sucediendo en tu negocio.
               </p>
-              <p className="border-l-4 border-violet-500 pl-5 italic text-sm text-slate-400">
+              <p className="border-l-4 border-violet-500 pl-4 md:pl-5 italic text-xs md:text-sm text-slate-400">
                 "Las empresas que digitalizan y automatizan sus procesos operativos logran reducir costos hasta en un 30% y multiplicar su capacidad productiva."
               </p>
             </div>
