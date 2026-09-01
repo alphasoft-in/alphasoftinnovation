@@ -57,7 +57,7 @@ const getColorHex = (color) => {
 
 export default function About() {
   return (
-    <section className="pt-12 pb-6 sm:py-24 relative overflow-hidden">
+    <section className="pt-12 pb-12 sm:pt-24 sm:pb-16 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <motion.div 

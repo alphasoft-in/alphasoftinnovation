@@ -97,7 +97,7 @@ const getColorHex = (color) => {
 
 export default function Services() {
   return (
-    <section className="pt-12 pb-6 sm:py-24 bg-slate-900/50 overflow-hidden">
+    <section className="pt-12 pb-12 sm:pt-24 sm:pb-16 bg-slate-900/50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <motion.div 
