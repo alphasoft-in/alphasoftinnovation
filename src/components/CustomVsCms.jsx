@@ -189,13 +189,26 @@ export default function CustomVsCms() {
             </li>
           </ul>
         </div>
-        <div className="lg:w-1/3 w-full bg-slate-950 p-6 rounded-2xl border border-violet-900/30 shadow-[0_0_50px_rgba(139,92,246,0.15)]">
-          <div className="flex items-center justify-center h-24 md:h-40">
-            <svg className="w-20 h-20 md:w-32 md:h-32 text-violet-500/50 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-            </svg>
+        <div className="lg:w-1/3 w-full bg-gradient-to-br from-slate-900 to-slate-950 p-8 rounded-3xl border border-violet-500/20 shadow-[0_0_40px_rgba(139,92,246,0.1)] relative overflow-hidden flex flex-col justify-center">
+          {/* Decorative background glow */}
+          <div className="absolute -top-12 -right-12 w-32 h-32 bg-violet-500/20 blur-3xl rounded-full"></div>
+          
+          <div className="flex items-center gap-3 mb-6 relative z-10">
+            <div className="w-10 h-10 rounded-full bg-violet-500/10 flex items-center justify-center border border-violet-500/20 shrink-0">
+              <svg className="w-5 h-5 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
+            <span className="text-violet-400 font-bold text-xs tracking-widest uppercase">Riesgo de Seguridad</span>
           </div>
-          <p className="text-center text-violet-400 font-medium text-xs md:text-sm leading-relaxed">30,000+ sitios hackeados diariamente por vulnerabilidades en plugins prefabricados.</p>
+          
+          <div className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-400 mb-4 relative z-10">
+            30,000+
+          </div>
+          
+          <p className="text-slate-300 text-sm leading-relaxed relative z-10">
+            sitios web son hackeados <strong>diariamente</strong> a nivel mundial debido a vulnerabilidades en plugins de plantillas prefabricadas.
+          </p>
         </div>
       </motion.div>
 
