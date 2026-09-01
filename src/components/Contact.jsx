@@ -65,7 +65,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="text-sm md:text-lg font-semibold text-white">Empresa</h4>
-                  <p className="text-xs sm:text-sm md:text-base text-slate-400 mt-1">Alphasoft Innovation Technology</p>
+                  <p className="text-xs sm:text-sm md:text-base text-slate-400 mt-1">Alphasoft Innovation</p>
                   <p className="text-xs sm:text-sm md:text-base text-slate-400">RUC: 20612026387</p>
                 </div>
               </div>
