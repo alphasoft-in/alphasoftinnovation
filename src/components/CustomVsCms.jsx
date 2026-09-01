@@ -189,24 +189,21 @@ export default function CustomVsCms() {
             </li>
           </ul>
         </div>
-        <div className="lg:w-1/3 w-full bg-slate-900/40 border border-slate-800 rounded-2xl p-6 lg:p-8 relative overflow-hidden flex flex-col justify-center">
-          <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-violet-500 to-cyan-500"></div>
+        <div className="lg:w-1/3 w-full bg-slate-900/40 border border-slate-800 rounded-2xl p-6 lg:p-8 relative overflow-hidden flex flex-col items-center justify-center text-center">
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-500 to-cyan-500"></div>
           
-          <div className="flex items-start gap-4">
-            <div className="mt-1 shrink-0">
-              <svg className="w-5 h-5 md:w-6 md:h-6 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-              </svg>
-            </div>
-            <div>
-              <div className="text-2xl md:text-3xl font-bold text-white mb-2">
-                30,000+
-              </div>
-              <p className="text-slate-400 text-xs md:text-sm leading-relaxed">
-                Sitios web hackeados <strong>diariamente</strong> a nivel mundial por vulnerabilidades críticas en plugins de plataformas prefabricadas.
-              </p>
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <svg className="w-6 h-6 text-violet-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+            <div className="text-2xl md:text-3xl font-bold text-white">
+              30,000+
             </div>
           </div>
+          
+          <p className="text-slate-400 text-xs md:text-sm leading-relaxed">
+            Sitios web hackeados <strong>diariamente</strong> a nivel mundial por vulnerabilidades críticas en plugins de plataformas prefabricadas.
+          </p>
         </div>
       </motion.div>
 
