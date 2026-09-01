@@ -131,7 +131,7 @@ export default function SystemsGuide() {
         </p>
         <a 
           href="/contacto"
-          className="inline-block px-6 py-2.5 text-sm bg-white text-slate-950 font-bold rounded-full hover:bg-slate-200 transition-colors relative z-10 shadow-[0_0_15px_rgba(255,255,255,0.15)] cursor-pointer"
+          className="inline-block px-5 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm bg-white text-slate-950 font-bold rounded-full hover:bg-slate-200 transition-colors relative z-10 shadow-[0_0_15px_rgba(255,255,255,0.15)] cursor-pointer"
         >
           Solicita una Consultoría Gratuita
         </a>
