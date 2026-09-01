@@ -13,7 +13,7 @@ export default function About() {
             transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
             className="order-2 lg:order-1 relative"
           >
-            <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500 to-violet-500 rounded-2xl blur-lg opacity-20"></div>
+            <div className="absolute -inset-1 sm:-inset-2 bg-gradient-to-r from-cyan-500 to-violet-500 rounded-2xl blur-md opacity-10"></div>
             <div className="relative rounded-2xl bg-slate-900 border border-slate-800 p-8 sm:p-10 backdrop-blur-sm">
 
               <div className="space-y-6">
