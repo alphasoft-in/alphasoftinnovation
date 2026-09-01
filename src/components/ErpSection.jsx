@@ -41,7 +41,7 @@ export default function ErpSection() {
   ];
 
   return (
-    <section className="py-24 bg-slate-950 relative overflow-hidden">
+    <section className="pt-12 pb-20 lg:pt-24 lg:pb-32 bg-slate-950 relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
         <div className="absolute top-1/4 -right-1/4 w-[800px] h-[800px] bg-violet-900/10 rounded-full blur-[100px]"></div>

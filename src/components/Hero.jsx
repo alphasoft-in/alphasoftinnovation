@@ -93,7 +93,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5, type: 'spring' }}
-          className="relative mx-auto max-w-5xl pb-20 lg:pb-32"
+          className="relative mx-auto max-w-5xl pb-8 lg:pb-16"
         >
           <motion.div variants={floatVariants} animate="animate">
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-10 top-1/2"></div>
