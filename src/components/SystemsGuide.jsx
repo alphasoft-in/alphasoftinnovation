@@ -55,6 +55,19 @@ const systems = [
   }
 ];
 
+// Helper to get hex colors
+const getColorHex = (color) => {
+  const map = {
+    'cyan': '#22d3ee',
+    'violet': '#a78bfa',
+    'fuchsia': '#e879f9',
+    'emerald': '#34d399',
+    'pink': '#f472b6',
+    'blue': '#60a5fa'
+  };
+  return map[color] || '#22d3ee';
+};
+
 export default function SystemsGuide() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-6 sm:py-20 overflow-hidden">
@@ -92,7 +105,7 @@ export default function SystemsGuide() {
           >
             <div className={`w-20 h-20 shrink-0 rounded-2xl flex items-center justify-center border shadow-lg`} 
                  style={{ 
-                   borderColor: sys.color === 'cyan' ? '#22d3ee' : sys.color === 'violet' ? '#a78bfa' : sys.color === 'fuchsia' ? '#e879f9' : '#34d399',
+                   borderColor: getColorHex(sys.color),
                    backgroundColor: 'rgba(15, 23, 42, 0.8)'
                  }}>
               {sys.icon}
@@ -101,7 +114,7 @@ export default function SystemsGuide() {
             <div className="flex-1">
               <h2 className="text-lg md:text-xl font-bold text-white mb-1 md:mb-2">{sys.name}</h2>
               <h3 className="text-[10px] md:text-xs font-bold tracking-wider uppercase mb-2 md:mb-3" 
-                  style={{ color: sys.color === 'cyan' ? '#22d3ee' : sys.color === 'violet' ? '#a78bfa' : sys.color === 'fuchsia' ? '#e879f9' : '#34d399' }}>
+                  style={{ color: getColorHex(sys.color) }}>
                 {sys.subtitle}
               </h3>
               <p className="text-slate-300 text-xs sm:text-sm mb-4 md:mb-5 leading-relaxed">
