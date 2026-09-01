@@ -55,7 +55,7 @@ export default function Contact() {
           </motion.div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           
           {/* Información de Contacto */}
           <motion.div 
