@@ -356,7 +356,7 @@ export default function CustomVsCms() {
         </p>
         <a 
           href="/contacto"
-          className="inline-block px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-bold rounded-full hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] transition-all transform hover:scale-105 relative z-10 cursor-pointer"
+          className="inline-block px-4 py-2 sm:px-8 sm:py-4 text-xs sm:text-base bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-bold rounded-full hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] transition-all transform hover:scale-105 relative z-10 cursor-pointer"
         >
           Desarrolla tu Código Propio Hoy
         </a>
