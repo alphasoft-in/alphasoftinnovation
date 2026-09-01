@@ -102,7 +102,7 @@ export default function ErpSection() {
             {benefits.map((benefit, index) => (
               <div 
                 key={index} 
-                className="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl hover:border-slate-700 hover:bg-slate-800/50 transition-colors"
+                className="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl hover:border-slate-700 hover:bg-slate-800/50 transition-colors text-center sm:text-left flex flex-col items-center sm:items-start"
               >
                 <div className="w-10 h-10 rounded-xl bg-slate-950 flex items-center justify-center border border-slate-800 mb-4 shadow-inner">
                   {benefit.icon}
