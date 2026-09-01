@@ -1,6 +1,43 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function Contact() {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [errors, setErrors] = useState({});
+
+  const validateForm = () => {
+    let newErrors = {};
+    if (!formData.name.trim()) newErrors.name = 'El nombre es obligatorio';
+    
+    if (!formData.email.trim()) {
+      newErrors.email = 'El correo electrónico es obligatorio';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'El formato del correo es inválido';
+    }
+
+    if (!formData.message.trim()) newErrors.message = 'Por favor ingresa un mensaje';
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      console.log('Form is valid. Ready to send to database.', formData);
+      // Backend integration pending
+    }
+  };
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
+    // Clear error for this field when user starts typing
+    if (errors[id]) {
+      setErrors(prev => ({ ...prev, [id]: null }));
+    }
+  };
+
   return (
     <section className="py-12 md:py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -92,15 +129,18 @@ export default function Contact() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl"
           >
-            <form className="space-y-5 md:space-y-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-5 md:space-y-6" onSubmit={handleSubmit} noValidate>
               <div>
                 <label htmlFor="name" className="block text-xs md:text-sm font-medium text-slate-300 mb-2">Nombre o Empresa</label>
                 <input 
                   type="text" 
-                  id="name" 
-                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-4 py-2.5 md:py-3 text-sm md:text-base text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors placeholder:text-slate-600"
+                  id="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className={`w-full bg-slate-950 border ${errors.name ? 'border-red-500' : 'border-slate-700'} rounded-lg px-4 py-2.5 md:py-3 text-sm md:text-base text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors placeholder:text-slate-600`}
                   placeholder="Ej. Juan Pérez"
                 />
+                {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
               </div>
               
               <div>
@@ -108,9 +148,12 @@ export default function Contact() {
                 <input 
                   type="email" 
                   id="email" 
-                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-4 py-2.5 md:py-3 text-sm md:text-base text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors placeholder:text-slate-600"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className={`w-full bg-slate-950 border ${errors.email ? 'border-red-500' : 'border-slate-700'} rounded-lg px-4 py-2.5 md:py-3 text-sm md:text-base text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors placeholder:text-slate-600`}
                   placeholder="ejemplo@correo.com"
                 />
+                {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
               </div>
 
               <div>
@@ -118,15 +161,19 @@ export default function Contact() {
                 <textarea 
                   id="message" 
                   rows={4}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-4 py-2.5 md:py-3 text-sm md:text-base text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors resize-none placeholder:text-slate-600"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className={`w-full bg-slate-950 border ${errors.message ? 'border-red-500' : 'border-slate-700'} rounded-lg px-4 py-2.5 md:py-3 text-sm md:text-base text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors resize-none placeholder:text-slate-600`}
                   placeholder="Cuéntanos sobre tu proyecto..."
                 ></textarea>
+                {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
               </div>
 
               <motion.button 
+                type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-bold py-3 md:py-4 px-4 rounded-lg hover:shadow-lg hover:shadow-cyan-500/25 transition-all cursor-pointer text-sm md:text-base"
+                className="w-full bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-bold py-3 md:py-4 px-4 rounded-lg hover:shadow-lg hover:shadow-cyan-500/25 transition-all cursor-pointer text-sm md:text-base mt-2"
               >
                 Enviar Mensaje
               </motion.button>
