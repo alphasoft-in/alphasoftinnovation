@@ -63,11 +63,11 @@ export default function About() {
             transition={{ duration: 0.8, type: "spring", bounce: 0.3, delay: 0.2 }}
             className="order-1 lg:order-2"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Sobre AlphaSoft Innovation Technology</h2>
-            <p className="text-lg text-slate-400 mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-5 md:mb-6 leading-tight">Sobre AlphaSoft Innovation Technology</h2>
+            <p className="text-sm sm:text-base text-slate-400 mb-5 md:mb-6 leading-relaxed">
               Somos una empresa peruana privada <strong className="text-white">especialista en diseño web, desarrollo de software, ciencia de datos</strong> y consultoría tecnológica. Nuestra misión es construir un ecosistema digital donde las empresas puedan operar a su máxima capacidad.
             </p>
-            <p className="text-lg text-slate-400 mb-8">
+            <p className="text-sm sm:text-base text-slate-400 mb-6 md:mb-8 leading-relaxed">
               Contamos con amplia experiencia creando soluciones robustas para sectores altamente exigentes como la <strong className="text-white">minería, agricultura</strong> y otras industrias clave. Nuestra agilidad nos permite ofrecer soluciones personalizadas, garantizando calidad e innovación en cada línea de código.
             </p>
 
