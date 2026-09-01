@@ -235,8 +235,8 @@ export default function CustomVsCms() {
         <div className="absolute right-0 top-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-[80px]"></div>
         
         <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <h3 className="text-2xl font-bold text-white mb-4">¿Dudas del rendimiento de tu web actual?</h3>
-          <p className="text-slate-400 mb-8 text-base">
+          <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">¿Dudas del rendimiento de tu web actual?</h3>
+          <p className="text-slate-400 mb-6 md:mb-8 text-sm md:text-base leading-relaxed px-2 sm:px-0">
             Ingresa el enlace de tu página y nuestros expertos te enviarán una <strong>auditoría gratuita</strong> de velocidad (PageSpeed), seguridad y escalabilidad en menos de 24 horas.
           </p>
           
@@ -330,11 +330,11 @@ export default function CustomVsCms() {
                 placeholder="Ejemplo: https://tuempresa.com"
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
-                className="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-5 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all placeholder:text-slate-600"
+                className="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-4 py-2.5 sm:px-5 sm:py-3 text-sm sm:text-base text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all placeholder:text-slate-600"
               />
               <button 
                 type="submit"
-                className="bg-cyan-600 hover:bg-cyan-500 text-white px-6 py-3 rounded-xl font-medium transition-colors whitespace-nowrap cursor-pointer shadow-[0_0_15px_rgba(8,145,178,0.3)]"
+                className="bg-cyan-600 hover:bg-cyan-500 text-white px-4 py-2.5 sm:px-6 sm:py-3 rounded-xl font-medium text-sm sm:text-base transition-colors whitespace-nowrap cursor-pointer shadow-[0_0_15px_rgba(8,145,178,0.3)]"
               >
                 Analizar mi Web con IA
               </button>
