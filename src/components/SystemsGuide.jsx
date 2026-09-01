@@ -63,8 +63,15 @@ export default function SystemsGuide() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-center max-w-3xl mx-auto mb-16"
+        className="text-center max-w-3xl mx-auto mb-10 md:mb-16"
       >
+        <div className="flex items-center justify-center gap-3 mb-4 md:mb-5">
+          <div className="h-[2px] w-6 md:w-10 bg-gradient-to-r from-cyan-400 to-violet-500 rounded-full"></div>
+          <span className="text-[10px] md:text-xs font-bold tracking-widest text-cyan-400 uppercase">
+            Sistemas Core
+          </span>
+          <div className="h-[2px] w-6 md:w-10 bg-gradient-to-l from-cyan-400 to-violet-500 rounded-full"></div>
+        </div>
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-5 text-white leading-tight">
           Arquitectura <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500">Empresarial Digital</span>
         </h1>
@@ -120,7 +127,7 @@ export default function SystemsGuide() {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mt-12 text-center bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-700 rounded-3xl p-6 lg:p-8 relative overflow-hidden"
+        className="mt-8 md:mt-12 text-center bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-700 rounded-3xl p-6 lg:p-8 relative overflow-hidden"
       >
         <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-[80px]"></div>
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-violet-500/10 rounded-full blur-[80px]"></div>

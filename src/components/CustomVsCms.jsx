@@ -145,11 +145,15 @@ export default function CustomVsCms() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-center max-w-4xl mx-auto mb-16"
+        className="text-center max-w-4xl mx-auto mb-10 md:mb-16"
       >
-        <span className="text-cyan-400 font-bold tracking-wider uppercase text-[10px] md:text-xs mb-2 md:mb-3 block">
-          Desarrollo a Medida vs. Plantillas CMS
-        </span>
+        <div className="flex items-center justify-center gap-3 mb-4 md:mb-5">
+          <div className="h-[2px] w-6 md:w-10 bg-gradient-to-r from-cyan-400 to-violet-500 rounded-full"></div>
+          <span className="text-[10px] md:text-xs font-bold tracking-widest text-cyan-400 uppercase">
+            Desarrollo a Medida vs. Plantillas CMS
+          </span>
+          <div className="h-[2px] w-6 md:w-10 bg-gradient-to-l from-cyan-400 to-violet-500 rounded-full"></div>
+        </div>
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-5 text-white leading-tight">
           Por qué WordPress <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500">frena el crecimiento</span> de tu corporación
         </h1>
