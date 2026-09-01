@@ -99,7 +99,7 @@ export default function Services() {
   };
 
   return (
-    <section className="py-24 bg-slate-900/50 overflow-hidden">
+    <section className="pt-12 pb-6 sm:py-24 bg-slate-900/50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <motion.div 
@@ -109,6 +109,13 @@ export default function Services() {
           transition={{ duration: 0.8 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
+          <div className="flex items-center justify-center gap-3 mb-4 md:mb-5">
+            <div className="h-[2px] w-6 md:w-10 bg-gradient-to-r from-cyan-400 to-violet-500 rounded-full"></div>
+            <span className="text-[10px] md:text-xs font-bold tracking-widest text-cyan-400 uppercase">
+              Nuestros Servicios
+            </span>
+            <div className="h-[2px] w-6 md:w-10 bg-gradient-to-l from-cyan-400 to-violet-500 rounded-full"></div>
+          </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4">Catálogo de Soluciones</h2>
           <p className="text-sm sm:text-base text-slate-400 leading-relaxed px-2 sm:px-0">
             Descubre cómo podemos potenciar tu negocio con nuestra gama de servicios especializados en tecnología y desarrollo de software.
