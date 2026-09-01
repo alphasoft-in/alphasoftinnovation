@@ -28,10 +28,10 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0 flex items-center gap-2">
-            <div className="w-8 h-8 rounded bg-gradient-to-br from-cyan-500 to-violet-600 flex items-center justify-center">
-              <span className="text-white font-bold text-xl">A</span>
+            <div className="w-7 h-7 md:w-8 md:h-8 rounded bg-gradient-to-br from-cyan-500 to-violet-600 flex items-center justify-center">
+              <span className="text-white font-bold text-lg md:text-xl">A</span>
             </div>
-            <span className="font-bold text-xl tracking-tight text-white">
+            <span className="font-bold text-lg md:text-xl tracking-tight text-white">
               AlphaSoft <span className="text-cyan-400">Innovation</span>
             </span>
           </div>
