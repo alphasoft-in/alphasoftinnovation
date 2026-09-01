@@ -157,8 +157,8 @@ export default function CustomVsCms() {
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-5 text-white leading-tight">
           Por qué WordPress <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500">frena el crecimiento</span> de tu corporación
         </h1>
-        <p className="text-sm sm:text-base text-slate-400 leading-relaxed px-2 sm:px-0">
-          Usar CMS como WordPress o Wix está bien para un blog amateur. Pero si tu objetivo es digitalizar procesos, proteger la data de tus clientes y escalar tu negocio, necesitas tecnología de verdad.
+        <p className="text-sm sm:text-base text-slate-400 leading-relaxed px-2 sm:px-0 max-w-2xl mx-auto">
+          Las plantillas genéricas están bien para un blog amateur. Si buscas digitalizar procesos y escalar tu negocio, necesitas tecnología de verdad.
         </p>
       </motion.div>
 
