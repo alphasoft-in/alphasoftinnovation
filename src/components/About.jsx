@@ -63,7 +63,13 @@ export default function About() {
             transition={{ duration: 0.8, type: "spring", bounce: 0.3, delay: 0.2 }}
             className="order-1 lg:order-2 text-center lg:text-left"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-5 md:mb-6 leading-tight">Sobre AlphaSoft Innovation Technology</h2>
+            <div className="flex items-center justify-center lg:justify-start gap-3 mb-4 md:mb-5">
+              <div className="h-[2px] w-8 md:w-12 bg-gradient-to-r from-cyan-400 to-violet-500 rounded-full"></div>
+              <span className="text-[10px] md:text-xs font-bold tracking-widest text-cyan-400 uppercase">
+                Conócenos
+              </span>
+            </div>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-5 md:mb-6 leading-tight">Sobre AlphaSoft Innovation Technology</h1>
             <p className="text-sm sm:text-base text-slate-400 mb-5 md:mb-6 leading-relaxed">
               Somos una empresa peruana privada <strong className="text-white">especialista en diseño web, desarrollo de software, ciencia de datos</strong> y consultoría tecnológica. Nuestra misión es construir un ecosistema digital donde las empresas puedan operar a su máxima capacidad.
             </p>
