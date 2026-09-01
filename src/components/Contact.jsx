@@ -11,7 +11,7 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6">Ponte en <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500">Contacto</span></h2>
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 md:mb-6">Ponte en <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500">Contacto</span></h2>
             <p className="text-sm md:text-lg text-slate-400 leading-relaxed px-2 sm:px-0">
               ¿Listo para transformar tu empresa con tecnología de primer nivel? Hablemos de tu próximo proyecto.
             </p>
@@ -30,7 +30,7 @@ export default function Contact() {
             {/* Ambient glow */}
             <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 to-violet-500/20 blur-xl opacity-30 -z-10 rounded-2xl"></div>
             
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-6 md:mb-8">Nuestros Datos</h3>
+            <h3 className="text-lg md:text-2xl font-bold text-white mb-6 md:mb-8">Nuestros Datos</h3>
             
             <div className="space-y-6">
               <div className="flex items-start gap-4">
@@ -40,8 +40,8 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-base md:text-lg font-semibold text-white">Llámanos</h4>
-                  <a href="tel:959464155" className="text-sm md:text-base text-slate-400 hover:text-cyan-400 transition-colors mt-1 block">959 464 155</a>
+                  <h4 className="text-sm md:text-lg font-semibold text-white">Llámanos</h4>
+                  <a href="tel:959464155" className="text-xs sm:text-sm md:text-base text-slate-400 hover:text-cyan-400 transition-colors mt-1 block">959 464 155</a>
                 </div>
               </div>
               
@@ -52,8 +52,8 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-base md:text-lg font-semibold text-white">Correos</h4>
-                  <a href="mailto:hola@alphasoftinnovation.com" className="text-sm md:text-base text-slate-400 hover:text-violet-400 transition-colors mt-1 block break-all">hola@alphasoftinnovation.com</a>
+                  <h4 className="text-sm md:text-lg font-semibold text-white">Correos</h4>
+                  <a href="mailto:hola@alphasoftinnovation.com" className="text-[11px] sm:text-xs md:text-base text-slate-400 hover:text-violet-400 transition-colors mt-1 block break-all">hola@alphasoftinnovation.com</a>
                 </div>
               </div>
 
@@ -64,9 +64,9 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-base md:text-lg font-semibold text-white">Empresa</h4>
-                  <p className="text-sm md:text-base text-slate-400 mt-1">Alphasoft Innovation Technology</p>
-                  <p className="text-sm md:text-base text-slate-400">RUC: 20612026387</p>
+                  <h4 className="text-sm md:text-lg font-semibold text-white">Empresa</h4>
+                  <p className="text-xs sm:text-sm md:text-base text-slate-400 mt-1">Alphasoft Innovation Technology</p>
+                  <p className="text-xs sm:text-sm md:text-base text-slate-400">RUC: 20612026387</p>
                 </div>
               </div>
 
@@ -78,8 +78,8 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-base md:text-lg font-semibold text-white">Ubicación</h4>
-                  <p className="text-sm md:text-base text-slate-400 mt-1">Lima, Perú</p>
+                  <h4 className="text-sm md:text-lg font-semibold text-white">Ubicación</h4>
+                  <p className="text-xs sm:text-sm md:text-base text-slate-400 mt-1">Lima, Perú</p>
                 </div>
               </div>
             </div>
