@@ -186,12 +186,12 @@ export default function CustomVsCms() {
           </ul>
         </div>
         <div className="lg:w-1/3 w-full bg-slate-950 p-6 rounded-2xl border border-red-900/30 shadow-[0_0_50px_rgba(220,38,38,0.1)]">
-          <div className="flex items-center justify-center h-40">
-            <svg className="w-32 h-32 text-red-500/50 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="flex items-center justify-center h-24 md:h-40">
+            <svg className="w-20 h-20 md:w-32 md:h-32 text-red-500/50 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
           </div>
-          <p className="text-center text-red-400 font-medium">30,000+ sitios hackeados diariamente por vulnerabilidades en plugins prefabricados.</p>
+          <p className="text-center text-red-400 font-medium text-sm md:text-base leading-relaxed">30,000+ sitios hackeados diariamente por vulnerabilidades en plugins prefabricados.</p>
         </div>
       </motion.div>
 
