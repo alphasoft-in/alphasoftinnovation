@@ -5,14 +5,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
+            <a href="/" className="flex items-center gap-2 mb-4 hover:opacity-90 transition-opacity w-fit cursor-pointer">
               <div className="w-7 h-7 md:w-8 md:h-8 rounded bg-gradient-to-br from-cyan-500 to-violet-600 flex items-center justify-center">
                 <span className="text-white font-bold text-lg md:text-xl">A</span>
               </div>
               <span className="font-bold text-lg md:text-xl tracking-tight text-white">
                 AlphaSoft <span className="text-cyan-400">Innovation</span>
               </span>
-            </div>
+            </a>
             <p className="text-sm md:text-base text-slate-400 max-w-sm">
               Conectando la creatividad y la tecnología para optimizar el rendimiento empresarial mediante soluciones personalizadas.
             </p>
