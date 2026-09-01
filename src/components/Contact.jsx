@@ -131,7 +131,7 @@ export default function Contact() {
           >
             <form className="space-y-5 md:space-y-6" onSubmit={handleSubmit} noValidate>
               <div>
-                <label htmlFor="name" className="block text-xs md:text-sm font-medium text-slate-300 mb-2">Nombre o Empresa</label>
+                <label htmlFor="name" className="block text-xs md:text-sm font-medium text-slate-300 mb-2">Nombre o Razón Social</label>
                 <input 
                   type="text" 
                   id="name"
