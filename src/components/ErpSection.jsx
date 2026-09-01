@@ -57,6 +57,7 @@ export default function ErpSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
+            className="text-center lg:text-left"
           >
             <h2 className="text-xs font-bold tracking-widest text-cyan-400 uppercase mb-3">
               Transformación Digital
@@ -72,12 +73,12 @@ export default function ErpSection() {
               <p>
                 Un sistema <strong>ERP (Planificación de Recursos Empresariales)</strong> desarrollado a medida actúa como el sistema nervioso central de tu empresa. Conecta tu inventario con tus ventas, automatiza tu contabilidad y te brinda visibilidad total sobre qué está sucediendo en tu negocio.
               </p>
-              <p className="border-l-4 border-violet-500 pl-4 md:pl-5 italic text-xs md:text-sm text-slate-400">
+              <p className="border-l-0 lg:border-l-4 border-violet-500 lg:pl-5 italic text-xs md:text-sm text-slate-400">
                 "Las empresas que digitalizan y automatizan sus procesos operativos logran reducir costos hasta en un 30% y multiplicar su capacidad productiva."
               </p>
             </div>
 
-            <div className="mt-8">
+            <div className="mt-8 flex justify-center lg:justify-start">
               <a 
                 href="/contacto"
                 className="inline-flex items-center gap-2 px-8 py-3 bg-white text-slate-950 font-bold rounded-full hover:bg-slate-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.2)] cursor-pointer text-sm"
