@@ -92,22 +92,22 @@ export default function SystemsGuide() {
             </div>
             
             <div className="flex-1">
-              <h2 className="text-xl font-bold text-white mb-2">{sys.name}</h2>
-              <h3 className="text-xs font-semibold tracking-wide uppercase mb-3" 
+              <h2 className="text-lg md:text-xl font-bold text-white mb-1 md:mb-2">{sys.name}</h2>
+              <h3 className="text-[10px] md:text-xs font-bold tracking-wider uppercase mb-2 md:mb-3" 
                   style={{ color: sys.color === 'cyan' ? '#22d3ee' : sys.color === 'violet' ? '#a78bfa' : sys.color === 'fuchsia' ? '#e879f9' : '#34d399' }}>
                 {sys.subtitle}
               </h3>
-              <p className="text-slate-300 text-sm mb-5 leading-relaxed">
+              <p className="text-slate-300 text-xs sm:text-sm mb-4 md:mb-5 leading-relaxed">
                 {sys.description}
               </p>
               
-              <div className="grid sm:grid-cols-2 gap-3">
+              <div className="grid sm:grid-cols-2 gap-2 md:gap-3">
                 {sys.benefits.map((benefit, i) => (
                   <div key={i} className="flex items-center gap-2">
-                    <svg className="w-4 h-4 text-slate-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-3.5 h-3.5 md:w-4 md:h-4 text-slate-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="text-slate-400 text-xs font-medium">{benefit}</span>
+                    <span className="text-slate-400 text-[11px] sm:text-xs font-medium">{benefit}</span>
                   </div>
                 ))}
               </div>
