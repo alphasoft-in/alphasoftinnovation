@@ -165,23 +165,23 @@ export default function CustomVsCms() {
         viewport={{ once: true, margin: "-100px" }}
         className="bg-slate-900 border border-slate-800 rounded-3xl p-8 lg:p-10 mb-16 flex flex-col lg:flex-row items-center gap-10"
       >
-        <div className="flex-1 space-y-5">
-          <h2 className="text-2xl font-bold text-white">El mito de lo "Barato y Rápido"</h2>
-          <p className="text-slate-300 text-base">
+        <div className="flex-1 space-y-4 md:space-y-5">
+          <h2 className="text-xl md:text-2xl font-bold text-white">El mito de lo "Barato y Rápido"</h2>
+          <p className="text-slate-300 text-sm md:text-base leading-relaxed">
             Las plataformas prefabricadas te venden la ilusión de tener una web o un sistema "rápido". La realidad es que terminas construyendo un <strong>"Frankenstein" digital</strong>.
           </p>
           <ul className="space-y-4">
             <li className="flex items-start gap-3">
-              <svg className="w-6 h-6 text-red-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-5 h-5 md:w-6 md:h-6 text-red-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
               </svg>
-              <span className="text-slate-400"><strong>Actualizaciones que rompen todo:</strong> Actualizas un plugin y tu sistema se cae. El mantenimiento constante es un dolor de cabeza.</span>
+              <span className="text-slate-400 text-sm md:text-base leading-relaxed"><strong>Actualizaciones que rompen todo:</strong> Actualizas un plugin y tu sistema se cae. El mantenimiento constante es un dolor de cabeza.</span>
             </li>
             <li className="flex items-start gap-3">
-              <svg className="w-6 h-6 text-red-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-5 h-5 md:w-6 md:h-6 text-red-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
               </svg>
-              <span className="text-slate-400"><strong>Lentitud extrema:</strong> Las plantillas cargan miles de líneas de código que tu empresa jamás usará.</span>
+              <span className="text-slate-400 text-sm md:text-base leading-relaxed"><strong>Lentitud extrema:</strong> Las plantillas cargan miles de líneas de código que tu empresa jamás usará.</span>
             </li>
           </ul>
         </div>
