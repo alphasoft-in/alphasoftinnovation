@@ -350,13 +350,13 @@ export default function CustomVsCms() {
         viewport={{ once: true }}
         className="text-center bg-gradient-to-br from-cyan-900/40 to-violet-900/40 border border-cyan-500/30 rounded-3xl p-8 lg:p-12 relative overflow-hidden"
       >
-        <h3 className="text-xl md:text-2xl font-bold text-white mb-3 relative z-10">Tu empresa merece un Traje a Medida</h3>
-        <p className="text-slate-300 max-w-2xl mx-auto mb-6 relative z-10 text-base">
+        <h3 className="text-lg md:text-2xl font-bold text-white mb-3 md:mb-4 relative z-10">Tu empresa merece un Traje a Medida</h3>
+        <p className="text-slate-300 max-w-2xl mx-auto mb-5 md:mb-6 relative z-10 text-sm sm:text-base leading-relaxed px-2 sm:px-0">
           En AlphaSoft Innovation desarrollamos tu tecnología desde cero, utilizando los mismos frameworks que usan gigantes tecnológicos como Netflix o Facebook (React, Node, Astro). <strong>No alquiles tecnología, sé el dueño de ella.</strong>
         </p>
         <a 
           href="/contacto"
-          className="inline-block px-8 py-4 bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-bold rounded-full hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] transition-all transform hover:scale-105 relative z-10 cursor-pointer"
+          className="inline-block px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-bold rounded-full hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] transition-all transform hover:scale-105 relative z-10 cursor-pointer"
         >
           Desarrolla tu Código Propio Hoy
         </a>
