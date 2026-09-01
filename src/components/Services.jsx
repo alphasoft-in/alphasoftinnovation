@@ -109,8 +109,8 @@ export default function Services() {
           transition={{ duration: 0.8 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Catálogo de Soluciones</h2>
-          <p className="text-lg text-slate-400">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4">Catálogo de Soluciones</h2>
+          <p className="text-sm sm:text-base text-slate-400 leading-relaxed px-2 sm:px-0">
             Descubre cómo podemos potenciar tu negocio con nuestra gama de servicios especializados en tecnología y desarrollo de software.
           </p>
         </motion.div>
