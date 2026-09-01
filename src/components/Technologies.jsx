@@ -18,10 +18,10 @@ export default function Technologies() {
   const duplicatedTech = [...technologies, ...technologies];
 
   return (
-    <section className="py-20 border-y border-slate-800 bg-slate-950 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center">
-        <h3 className="text-2xl font-bold text-white mb-2">Nuestro Stack Tecnológico</h3>
-        <p className="text-slate-400">Dominamos las herramientas más modernas y robustas del mercado</p>
+    <section className="py-10 md:py-20 border-y border-slate-800 bg-slate-950 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 md:mb-10 text-center">
+        <h3 className="text-xl md:text-2xl font-bold text-white mb-2">Nuestro Stack Tecnológico</h3>
+        <p className="text-sm md:text-base text-slate-400 px-2 sm:px-0">Dominamos las herramientas más modernas y robustas del mercado</p>
       </div>
       
       <div className="relative w-full overflow-hidden">
