@@ -212,7 +212,7 @@ export default function CustomVsCms() {
             <thead>
               <tr>
                 <th className="p-3 border-b border-slate-700 bg-slate-900/50 text-slate-300 font-semibold rounded-tl-2xl text-xs md:text-sm w-1/4">Característica</th>
-                <th className="p-3 border-b border-slate-700 bg-cyan-900/20 text-cyan-400 font-bold text-sm md:text-base w-2/5">Código a Medida (AlphaSoft)</th>
+                <th className="p-3 border-b border-slate-700 bg-slate-900/50 text-slate-400 font-semibold text-xs md:text-sm w-2/5">Código a Medida (AlphaSoft)</th>
                 <th className="p-3 border-b border-slate-700 bg-slate-900/50 text-slate-400 font-semibold rounded-tr-2xl text-xs md:text-sm w-auto">WordPress / CMS</th>
               </tr>
             </thead>
