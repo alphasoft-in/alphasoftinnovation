@@ -7,9 +7,9 @@ const services = [
     subtitle: "Tu escaparate digital 24/7",
     description: "Creación de páginas web modernas, atractivas y altamente funcionales para potenciar tu presencia digital. Optimizadas para velocidad y conversión.",
     benefits: ["Diseño responsivo", "Optimización SEO", "Alta velocidad de carga", "Experiencia de usuario (UX)"],
-    color: "pink",
+    color: "cyan",
     icon: (
-      <svg className="w-8 h-8 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg className="w-8 h-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
       </svg>
     )
@@ -20,9 +20,9 @@ const services = [
     subtitle: "Soluciones exclusivas para tu negocio",
     description: "Diseño y creación de aplicaciones o sistemas web adaptados a las solicitudes específicas de cada negocio. Lo que necesites, lo construimos.",
     benefits: ["Escalabilidad absoluta", "Sin licencias mensuales", "Propiedad del código fuente", "Alineado a tus procesos"],
-    color: "cyan",
+    color: "violet",
     icon: (
-      <svg className="w-8 h-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg className="w-8 h-8 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
       </svg>
     )
@@ -33,9 +33,9 @@ const services = [
     subtitle: "Eficiencia y productividad",
     description: "Implementación de herramientas de software para agilizar tareas repetitivas y elevar los índices de productividad, reduciendo errores humanos.",
     benefits: ["Menos tareas manuales", "Reducción de errores", "Ahorro de horas hombre", "Flujos de trabajo continuos"],
-    color: "violet",
+    color: "emerald",
     icon: (
-      <svg className="w-8 h-8 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg className="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
       </svg>
     )
@@ -59,9 +59,9 @@ const services = [
     subtitle: "Conectando todas tus plataformas",
     description: "Sincronización y conexión de las plataformas existentes en los negocios para mejorar su eficiencia operativa, permitiendo que hablen entre sí.",
     benefits: ["APIs personalizadas", "Centralización de información", "Conexión con ERP/CRM", "Sincronización en tiempo real"],
-    color: "blue",
+    color: "cyan",
     icon: (
-      <svg className="w-8 h-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg className="w-8 h-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
       </svg>
     )
@@ -72,9 +72,9 @@ const services = [
     subtitle: "Operatividad garantizada",
     description: "Servicios continuos para asegurar que los desarrollos e infraestructuras de software operen al 100% de su capacidad. Tu tranquilidad, nuestra prioridad.",
     benefits: ["Monitoreo preventivo", "Resolución de incidencias", "Actualizaciones de seguridad", "Copias de respaldo (Backups)"],
-    color: "emerald",
+    color: "violet",
     icon: (
-      <svg className="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg className="w-8 h-8 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
       </svg>
