@@ -202,22 +202,22 @@ export default function CustomVsCms() {
         viewport={{ once: true }}
         className="mb-16"
       >
-        <h3 className="text-xl font-bold text-white mb-6 text-center">La Tabla de la Verdad</h3>
+        <h3 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6 text-center">La Tabla de la Verdad</h3>
         <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
+          <table className="w-full text-left border-collapse min-w-[500px] md:min-w-0">
             <thead>
               <tr>
-                <th className="p-3 border-b border-slate-700 bg-slate-900/50 text-slate-300 font-semibold rounded-tl-2xl text-sm">Característica</th>
-                <th className="p-3 border-b border-slate-700 bg-cyan-900/20 text-cyan-400 font-bold text-base">Código a Medida (AlphaSoft)</th>
-                <th className="p-3 border-b border-slate-700 bg-slate-900/50 text-slate-400 font-semibold rounded-tr-2xl text-sm">WordPress / CMS</th>
+                <th className="p-3 border-b border-slate-700 bg-slate-900/50 text-slate-300 font-semibold rounded-tl-2xl text-xs md:text-sm w-1/4">Característica</th>
+                <th className="p-3 border-b border-slate-700 bg-cyan-900/20 text-cyan-400 font-bold text-sm md:text-base w-2/5">Código a Medida (AlphaSoft)</th>
+                <th className="p-3 border-b border-slate-700 bg-slate-900/50 text-slate-400 font-semibold rounded-tr-2xl text-xs md:text-sm w-auto">WordPress / CMS</th>
               </tr>
             </thead>
-            <tbody className="bg-slate-900/20 text-sm">
+            <tbody className="bg-slate-900/20 text-xs md:text-sm">
               {comparisons.map((row, i) => (
                 <tr key={i} className="hover:bg-slate-800/30 transition-colors border-b border-slate-800/50 last:border-0">
-                  <td className="p-3 text-white font-medium">{row.feature}</td>
-                  <td className={`p-3 font-medium bg-cyan-900/5 ${row.customColor}`}>{row.custom}</td>
-                  <td className={`p-3 ${row.cmsColor}`}>{row.cms}</td>
+                  <td className="p-3 text-white font-medium text-[11px] md:text-sm">{row.feature}</td>
+                  <td className={`p-3 font-medium bg-cyan-900/5 leading-relaxed text-xs md:text-sm ${row.customColor}`}>{row.custom}</td>
+                  <td className={`p-3 leading-relaxed text-[11px] md:text-sm ${row.cmsColor}`}>{row.cms}</td>
                 </tr>
               ))}
             </tbody>
