@@ -33,9 +33,9 @@ const systems = [
     subtitle: "El cerebro analítico para tomar decisiones",
     description: "El software de BI recolecta los datos generados por el ERP y el CRM para transformarlos en gráficos, tableros dinámicos (dashboards) y reportes automatizados. Pasa de ver 'qué pasó' a entender 'por qué pasó' y 'qué pasará'.",
     benefits: ["Decisiones basadas en datos reales", "Detección de cuellos de botella", "Dashboards interactivos en tiempo real", "Identificación de nuevas oportunidades"],
-    color: "fuchsia",
+    color: "blue",
     icon: (
-      <svg className="w-8 h-8 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg className="w-8 h-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
       </svg>
     )
@@ -46,9 +46,9 @@ const systems = [
     subtitle: "El control físico de tus activos",
     description: "Especialmente vital para empresas agrícolas, mineras o de retail. Un WMS optimiza el espacio de almacén, rastrea la entrada y salida de materiales, previene robos o mermas y garantiza que nunca te quedes sin stock crítico.",
     benefits: ["Control de stock en tiempo real", "Trazabilidad de lotes y fechas", "Optimización de espacio físico", "Reducción de pérdidas por merma"],
-    color: "emerald",
+    color: "cyan",
     icon: (
-      <svg className="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg className="w-8 h-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
       </svg>
     )
