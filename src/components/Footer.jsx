@@ -55,10 +55,10 @@ export default function Footer() {
         </div>
         
         <div className="pt-8 border-t border-slate-800 text-center md:flex md:justify-between md:items-center">
-          <p className="text-slate-500 text-sm">
+          <p className="text-slate-500 text-xs md:text-sm">
             &copy; {new Date().getFullYear()} Alphasoft Innovation Technology. RUC: 20612026387. Todos los derechos reservados.
           </p>
-          <div className="mt-4 md:mt-0 flex justify-center gap-4 text-sm text-slate-500">
+          <div className="mt-4 md:mt-0 flex justify-center gap-4 text-xs md:text-sm text-slate-500">
             <a href="/terminos" className="hover:text-white transition-colors">Términos de Servicio</a>
             <a href="/privacidad" className="hover:text-white transition-colors">Privacidad</a>
           </div>
