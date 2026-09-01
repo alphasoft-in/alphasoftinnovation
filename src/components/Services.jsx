@@ -121,7 +121,7 @@ export default function Services() {
           </p>
         </motion.div>
         
-        <div className="space-y-12">
+        <div className="space-y-6 lg:space-y-8">
           {services.map((sys, index) => (
             <motion.div 
               key={sys.id}
