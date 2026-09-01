@@ -171,7 +171,7 @@ export default function CustomVsCms() {
       >
         <div className="flex-1 space-y-4 md:space-y-5 text-center lg:text-left">
           <h2 className="text-xl md:text-2xl font-bold text-white">El mito de lo "Barato y Rápido"</h2>
-          <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+          <p className="text-slate-300 text-xs md:text-sm leading-relaxed">
             Las plataformas prefabricadas te venden la ilusión de tener una web o un sistema "rápido". La realidad es que terminas construyendo un <strong>"Frankenstein" digital</strong>.
           </p>
           <ul className="space-y-4">
@@ -195,7 +195,7 @@ export default function CustomVsCms() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
           </div>
-          <p className="text-center text-violet-400 font-medium text-sm md:text-base leading-relaxed">30,000+ sitios hackeados diariamente por vulnerabilidades en plugins prefabricados.</p>
+          <p className="text-center text-violet-400 font-medium text-xs md:text-sm leading-relaxed">30,000+ sitios hackeados diariamente por vulnerabilidades en plugins prefabricados.</p>
         </div>
       </motion.div>
 
