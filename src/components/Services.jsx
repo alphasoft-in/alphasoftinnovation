@@ -138,7 +138,7 @@ export default function Services() {
               {/* Static subtle gradient for card background */}
               <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
               
-              <div className="relative z-10">
+              <div className="relative z-10 text-center sm:text-left flex flex-col items-center sm:items-start">
                 <motion.div 
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   className="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center border border-slate-700 mb-6"
