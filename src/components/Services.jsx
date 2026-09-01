@@ -145,8 +145,8 @@ export default function Services() {
                 >
                   {service.icon}
                 </motion.div>
-                <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
-                <p className="text-slate-400 group-hover:text-slate-300 transition-colors relative z-10">
+                <h3 className="text-lg md:text-xl font-bold text-white mb-2 md:mb-3">{service.title}</h3>
+                <p className="text-sm md:text-base text-slate-400 group-hover:text-slate-300 transition-colors relative z-10 leading-relaxed">
                   {service.description}
                 </p>
               </div>
