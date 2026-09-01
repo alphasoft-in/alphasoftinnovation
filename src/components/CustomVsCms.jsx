@@ -111,29 +111,29 @@ export default function CustomVsCms() {
       feature: "Seguridad y Vulnerabilidades",
       custom: "Alta. Código cerrado y encriptado, sin depender de plugins de terceros.",
       cms: "Baja. Es el blanco #1 de hackers mundiales debido a fallos en plugins obsoletos.",
-      customColor: "text-emerald-400",
-      cmsColor: "text-red-400"
+      customColor: "text-cyan-400",
+      cmsColor: "text-fuchsia-400"
     },
     {
       feature: "Velocidad de Carga (SEO)",
       custom: "Ultra rápida. Solo se carga el código necesario. Perfecto para Google.",
       cms: "Lenta. Carga cientos de scripts innecesarios ('bloatware') que penalizan el SEO.",
-      customColor: "text-emerald-400",
-      cmsColor: "text-red-400"
+      customColor: "text-cyan-400",
+      cmsColor: "text-fuchsia-400"
     },
     {
       feature: "Escalabilidad",
       custom: "Infinita. La arquitectura puede mutar y crecer junto con los nuevos procesos de tu empresa.",
       cms: "Limitada. Escalar requiere 'parchar' el sistema con más plugins, volviéndolo inestable.",
-      customColor: "text-emerald-400",
-      cmsColor: "text-red-400"
+      customColor: "text-cyan-400",
+      cmsColor: "text-fuchsia-400"
     },
     {
       feature: "Propiedad Intelectual",
       custom: "100% Tuya. Eres dueño del código fuente y de tu propia tecnología.",
       cms: "Alquilada. Eres esclavo de las políticas y subidas de precio de las plantillas y plugins.",
-      customColor: "text-emerald-400",
-      cmsColor: "text-amber-400"
+      customColor: "text-cyan-400",
+      cmsColor: "text-fuchsia-400"
     }
   ];
 
