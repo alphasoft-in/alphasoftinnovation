@@ -147,13 +147,13 @@ export default function CustomVsCms() {
         transition={{ duration: 0.6 }}
         className="text-center max-w-4xl mx-auto mb-16"
       >
-        <span className="text-pink-500 font-bold tracking-wider uppercase text-xs mb-3 block">
+        <span className="text-pink-500 font-bold tracking-wider uppercase text-[10px] md:text-xs mb-2 md:mb-3 block">
           Desarrollo a Medida vs. Plantillas CMS
         </span>
-        <h1 className="text-3xl md:text-4xl font-bold mb-5 text-white leading-tight">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-5 text-white leading-tight">
           Por qué WordPress <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-pink-500">frena el crecimiento</span> de tu corporación
         </h1>
-        <p className="text-lg text-slate-400">
+        <p className="text-sm sm:text-base text-slate-400 leading-relaxed px-2 sm:px-0">
           Usar CMS como WordPress o Wix está bien para un blog amateur. Pero si tu objetivo es digitalizar procesos, proteger la data de tus clientes y escalar tu negocio, necesitas tecnología de verdad.
         </p>
       </motion.div>
