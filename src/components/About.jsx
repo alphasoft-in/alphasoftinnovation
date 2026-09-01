@@ -81,7 +81,7 @@ export default function About() {
           </p>
         </motion.div>
         
-        <div className="space-y-12">
+        <div className="space-y-6 lg:space-y-8">
           {aboutSections.map((section, index) => (
             <motion.div 
               key={section.id}
