@@ -106,19 +106,19 @@ export default function Hero() {
                 className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-violet-500 to-fuchsia-500 rounded-xl opacity-20 blur-sm -z-10"
               />
               
-              <div className="rounded-lg overflow-hidden border border-slate-800/50 bg-slate-950 flex flex-col h-[400px]">
+              <div className="rounded-lg overflow-hidden border border-slate-800/50 bg-slate-950 flex flex-col h-[250px] md:h-[400px]">
                 {/* Window Header */}
-                <div className="h-10 bg-slate-900 border-b border-slate-800 flex items-center px-4 gap-2">
-                  <div className="w-3 h-3 rounded-full bg-slate-700"></div>
-                  <div className="w-3 h-3 rounded-full bg-slate-700"></div>
-                  <div className="w-3 h-3 rounded-full bg-slate-700"></div>
+                <div className="h-8 md:h-10 bg-slate-900 border-b border-slate-800 flex items-center px-4 gap-2">
+                  <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-slate-700"></div>
+                  <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-slate-700"></div>
+                  <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-slate-700"></div>
                 </div>
                 {/* Fake UI Content */}
-                <div className="p-8 flex-1 flex flex-col gap-6 opacity-60">
-                  <div className="flex gap-4">
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }} className="h-24 w-1/3 bg-slate-800 rounded-lg"></motion.div>
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2, duration: 1 }} className="h-24 w-1/3 bg-slate-800 rounded-lg"></motion.div>
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4, duration: 1 }} className="h-24 w-1/3 bg-slate-800 rounded-lg"></motion.div>
+                <div className="p-4 md:p-8 flex-1 flex flex-col gap-4 md:gap-6 opacity-60">
+                  <div className="flex gap-2 md:gap-4">
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }} className="h-16 md:h-24 w-1/3 bg-slate-800 rounded-lg"></motion.div>
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2, duration: 1 }} className="h-16 md:h-24 w-1/3 bg-slate-800 rounded-lg"></motion.div>
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4, duration: 1 }} className="h-16 md:h-24 w-1/3 bg-slate-800 rounded-lg"></motion.div>
                   </div>
                   <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: 1.8, duration: 1.5, ease: "easeOut" }} className="flex-1 bg-slate-800 rounded-lg origin-left"></motion.div>
                 </div>
