@@ -93,7 +93,7 @@ export default function SystemsGuide() {
         </p>
       </motion.div>
 
-      <div className="space-y-12">
+      <div className="space-y-6 lg:space-y-8">
         {systems.map((sys, index) => (
           <motion.div 
             key={sys.id}
