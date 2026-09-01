@@ -2,9 +2,9 @@ export default function Footer() {
   return (
     <footer className="bg-slate-950 border-t border-slate-800 pt-10 sm:pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12 text-center md:text-left">
           
-          <div className="md:col-span-2">
+          <div className="md:col-span-2 flex flex-col items-center md:items-start">
             <a href="/" className="flex items-center gap-2 mb-4 hover:opacity-90 transition-opacity w-fit cursor-pointer">
               <div className="w-7 h-7 md:w-8 md:h-8 rounded bg-gradient-to-br from-cyan-500 to-violet-600 flex items-center justify-center">
                 <span className="text-white font-bold text-lg md:text-xl">A</span>
@@ -13,7 +13,7 @@ export default function Footer() {
                 AlphaSoft <span className="text-cyan-400">Innovation</span>
               </span>
             </a>
-            <p className="text-sm md:text-base text-slate-400 max-w-sm">
+            <p className="text-sm md:text-base text-slate-400 max-w-sm mx-auto md:mx-0">
               Conectando la creatividad y la tecnología para optimizar el rendimiento empresarial mediante soluciones personalizadas.
             </p>
           </div>
@@ -34,14 +34,14 @@ export default function Footer() {
             <h4 className="text-base md:text-lg text-white font-semibold mb-4">Contacto</h4>
             <ul className="space-y-4 text-slate-400 text-sm md:text-base">
 
-              <li className="flex items-start gap-3">
+              <li className="flex items-center justify-center md:justify-start gap-3">
                 <svg className="w-4 h-4 md:w-5 md:h-5 text-cyan-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
                 <a href="tel:959464155" className="hover:text-cyan-400 transition-colors">959464155</a>
               </li>
 
-              <li className="flex items-start gap-3">
+              <li className="flex items-center justify-center md:justify-start gap-3">
                 <svg className="w-4 h-4 md:w-5 md:h-5 text-cyan-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2-2v10a2 2 0 002 2z" />
                 </svg>
