@@ -217,7 +217,7 @@ export default function AdminDashboard() {
   // Vista 1: Login de Superadministrador
   if (!token) {
     return (
-      <div className="min-h-[75vh] flex items-center justify-center px-4 py-12">
+      <div className="min-h-screen flex items-center justify-center px-4 py-12 bg-slate-950">
         <div className="w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
           <div className="absolute -top-20 -right-20 w-44 h-44 bg-orange-500/15 rounded-full blur-3xl pointer-events-none"></div>
           <div className="text-center mb-6">
@@ -309,37 +309,56 @@ export default function AdminDashboard() {
   const resolvedClaimsCount = claims.filter((c) => c.status === 'resolved').length;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-      {/* Barra superior del panel */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5 mb-6">
-        <div>
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-            <span className="text-[11px] font-bold uppercase tracking-wider text-orange-400">
-              Superadministrador: {adminUser?.email}
-            </span>
+    <div className="min-h-screen bg-slate-950">
+      {/* Cabecera exclusiva de Backoffice Admin */}
+      <header className="bg-slate-900/90 border-b border-slate-800 sticky top-0 z-40 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <img
+              src="/apple-touch-icon.png?v=2"
+              alt="AlphaSoft Logo"
+              className="w-8 h-8 object-contain drop-shadow-[0_0_8px_rgba(249,115,22,0.25)]"
+            />
+            <div className="flex flex-col leading-none">
+              <span className="font-extrabold text-sm sm:text-base tracking-tight text-white">
+                ALPHA<span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-red-500">SOFT</span>
+                <span className="ml-2 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-orange-500/15 text-orange-400 border border-orange-500/30">
+                  Admin
+                </span>
+              </span>
+              <span className="text-[10px] text-slate-400 mt-0.5">
+                {adminUser?.email}
+              </span>
+            </div>
           </div>
-          <h1 className="text-base sm:text-xl font-bold text-white mt-0.5">
-            Centro de Control — AlphaSoft Innovation
-          </h1>
-        </div>
 
-        <div className="flex items-center gap-2.5">
-          <button
-            onClick={() => fetchDashboardData(token)}
-            disabled={isLoadingData}
-            className="px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium border border-slate-700 transition-colors cursor-pointer"
-          >
-            {isLoadingData ? 'Actualizando...' : 'Actualizar Datos'}
-          </button>
-          <button
-            onClick={handleLogout}
-            className="px-3.5 py-1.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 text-xs font-medium border border-red-500/30 transition-colors cursor-pointer"
-          >
-            Cerrar Sesión
-          </button>
+          <div className="flex items-center gap-2 sm:gap-2.5">
+            <a
+              href="/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-800 text-slate-300 hover:text-white text-xs font-medium border border-slate-700/80 transition-colors"
+            >
+              Ver Web ↗
+            </a>
+            <button
+              onClick={() => fetchDashboardData(token)}
+              disabled={isLoadingData}
+              className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium border border-slate-700 transition-colors cursor-pointer"
+            >
+              {isLoadingData ? 'Actualizando...' : 'Actualizar Datos'}
+            </button>
+            <button
+              onClick={handleLogout}
+              className="px-3 py-1.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 text-xs font-medium border border-red-500/30 transition-colors cursor-pointer"
+            >
+              Cerrar Sesión
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
 
       {/* KPIs */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6">
@@ -751,6 +770,7 @@ export default function AdminDashboard() {
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 }
