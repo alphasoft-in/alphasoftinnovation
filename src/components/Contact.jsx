@@ -159,7 +159,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="pt-4 pb-8 md:pt-6 md:pb-12 relative overflow-hidden">
+    <section className="pt-6 pb-10 md:pt-8 md:pb-14 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-2xl mx-auto mb-6 md:mb-8">

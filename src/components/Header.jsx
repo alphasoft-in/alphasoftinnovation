@@ -8,8 +8,9 @@ export default function Header() {
   useEffect(() => {
     setCurrentPath(window.location.pathname);
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 10);
     };
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -24,7 +25,7 @@ export default function Header() {
   ];
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-950/90 backdrop-blur-md shadow-lg shadow-slate-950/20' : 'bg-transparent'}`}>
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-950/95 backdrop-blur-md shadow-lg shadow-slate-950/40 border-b border-slate-800/60' : 'bg-slate-950/80 backdrop-blur-md border-b border-slate-900/40'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <a href="/" className="flex-shrink-0 flex items-center gap-2 hover:opacity-90 transition-opacity cursor-pointer">
