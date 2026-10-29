@@ -4,9 +4,8 @@ import { sendZohoMail } from '../../lib/mailer.js';
 
 export const prerender = false;
 
-const RECIPIENT_EMAILS = [
-  'legal@alphasoftinnovation.com'
-];
+const PRIMARY_RECIPIENT = 'legal@alphasoftinnovation.com';
+const CC_RECIPIENT = 'rubenesteban@alphasoftinnovation.com';
 
 async function sendClaimEmailNotification(claimData) {
   const claimTypeLabel = (claimData.claimType || 'reclamo').toUpperCase();
@@ -59,10 +58,10 @@ async function sendClaimEmailNotification(claimData) {
     </div>
   `;
 
-  // Enviar por Zoho Mail SMTP tanto a legal@alphasoftinnovation.com como en copia al usuario reclamante
+  // Enviar por Zoho Mail SMTP a legal@alphasoftinnovation.com con copia (CC) a rubenesteban@alphasoftinnovation.com y al usuario reclamante
   return await sendZohoMail({
-    to: RECIPIENT_EMAILS,
-    cc: [claimData.email.trim()],
+    to: PRIMARY_RECIPIENT,
+    cc: [CC_RECIPIENT, claimData.email.trim()],
     replyTo: claimData.email.trim(),
     subject,
     html: htmlContent,
@@ -112,7 +111,7 @@ export const POST = async ({ request }) => {
     return new Response(JSON.stringify({
       success: true,
       message: 'Reclamo guardado y notificado exitosamente',
-      recipients: [...RECIPIENT_EMAILS, body.email]
+      recipients: [PRIMARY_RECIPIENT, CC_RECIPIENT, body.email]
     }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }

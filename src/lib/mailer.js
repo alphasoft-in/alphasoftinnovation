@@ -72,3 +72,4 @@ export async function sendZohoMail({
 
   throw lastError;
 }
+
