@@ -1,5 +1,6 @@
 import { db } from '../../db/index.js';
 import { claims } from '../../db/schema.js';
+import { sendZohoMail } from '../../lib/mailer.js';
 
 export const prerender = false;
 
@@ -8,96 +9,65 @@ const RECIPIENT_EMAILS = [
 ];
 
 async function sendClaimEmailNotification(claimData) {
-  const resendApiKey = typeof process !== 'undefined' && process.env.RESEND_API_KEY
-    ? process.env.RESEND_API_KEY
-    : import.meta.env?.RESEND_API_KEY;
-
   const claimTypeLabel = (claimData.claimType || 'reclamo').toUpperCase();
+  const currentDate = new Intl.DateTimeFormat('es-PE', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+  }).format(new Date());
+
   const subject = `[LIBRO DE RECLAMACIONES - ${claimTypeLabel}] ${claimData.fullName} (${claimData.documentType}: ${claimData.documentNumber})`;
 
-  // 1. Envío mediante Resend API si RESEND_API_KEY está configurada
-  if (resendApiKey) {
-    const htmlContent = `
-      <div style="font-family: Arial, sans-serif; max-width: 640px; margin: 0 auto; background: #0f172a; color: #f8fafc; padding: 24px; border-radius: 12px; border: 1px solid #ef4444;">
-        <h2 style="color: #f87171; margin-top: 0;">Hoja de Reclamación Virtual (${claimTypeLabel})</h2>
-        <p style="font-size: 12px; color: #94a3b8; margin-bottom: 16px;">Alphasoft Innovation — RUC: 20612026387</p>
-        
-        <h3 style="color: #fb923c; font-size: 14px; border-bottom: 1px solid #334155; padding-bottom: 6px;">1. Identificación del Consumidor</h3>
-        <table style="width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 16px;">
-          <tr><td style="padding: 6px 0; color: #94a3b8; width: 180px;"><strong>Documento:</strong></td><td style="padding: 6px 0; color: #ffffff;">${claimData.documentType} - ${claimData.documentNumber}</td></tr>
-          <tr><td style="padding: 6px 0; color: #94a3b8;"><strong>Nombre / Razón Social:</strong></td><td style="padding: 6px 0; color: #ffffff;">${claimData.fullName}</td></tr>
-          <tr><td style="padding: 6px 0; color: #94a3b8;"><strong>Domicilio:</strong></td><td style="padding: 6px 0; color: #ffffff;">${claimData.address}</td></tr>
-          <tr><td style="padding: 6px 0; color: #94a3b8;"><strong>Teléfono:</strong></td><td style="padding: 6px 0; color: #ffffff;">${claimData.phone || 'No especificado'}</td></tr>
-          <tr><td style="padding: 6px 0; color: #94a3b8;"><strong>Correo Electrónico:</strong></td><td style="padding: 6px 0; color: #ffffff;">${claimData.email}</td></tr>
-        </table>
-
-        <h3 style="color: #fb923c; font-size: 14px; border-bottom: 1px solid #334155; padding-bottom: 6px;">2. Identificación del Bien Contratado</h3>
-        <table style="width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 16px;">
-          <tr><td style="padding: 6px 0; color: #94a3b8; width: 180px;"><strong>Tipo de Bien:</strong></td><td style="padding: 6px 0; color: #ffffff;">${claimData.goodsType}</td></tr>
-          <tr><td style="padding: 6px 0; color: #94a3b8;"><strong>Monto Reclamado (S/):</strong></td><td style="padding: 6px 0; color: #ffffff;">${claimData.claimedAmount || '0.00'}</td></tr>
-          <tr><td style="padding: 6px 0; color: #94a3b8;"><strong>Descripción:</strong></td><td style="padding: 6px 0; color: #ffffff;">${claimData.goodsDescription}</td></tr>
-        </table>
-
-        <h3 style="color: #fb923c; font-size: 14px; border-bottom: 1px solid #334155; padding-bottom: 6px;">3. Detalle de la Reclamación y Pedido</h3>
-        <table style="width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 12px;">
-          <tr><td style="padding: 6px 0; color: #94a3b8; width: 180px;"><strong>Tipo:</strong></td><td style="padding: 6px 0; color: #fbbf24; font-weight: bold;">${claimTypeLabel}</td></tr>
-          <tr><td style="padding: 6px 0; color: #94a3b8;"><strong>Fecha del Incidente:</strong></td><td style="padding: 6px 0; color: #ffffff;">${claimData.incidentDate}</td></tr>
-        </table>
-        <div style="margin-top: 10px; padding: 12px; background: #020617; border-radius: 8px; border: 1px solid #1e293b;">
-          <strong style="color: #fbbf24; display: block; margin-bottom: 4px; font-size: 12px;">Detalle del Reclamo / Queja:</strong>
-          <p style="margin: 0 0 12px 0; color: #e2e8f0; white-space: pre-wrap; font-size: 13px;">${claimData.details}</p>
-          <strong style="color: #fbbf24; display: block; margin-bottom: 4px; font-size: 12px;">Pedido Concreto del Consumidor:</strong>
-          <p style="margin: 0; color: #e2e8f0; white-space: pre-wrap; font-size: 13px;">${claimData.request}</p>
-        </div>
+  const htmlContent = `
+    <div style="font-family: Arial, sans-serif; max-width: 640px; margin: 0 auto; background: #0f172a; color: #f8fafc; padding: 24px; border-radius: 12px; border: 1px solid #f97316;">
+      <div style="text-align: center; border-bottom: 1px solid #334155; padding-bottom: 14px; margin-bottom: 18px;">
+        <h2 style="color: #fb923c; margin: 0; font-size: 18px; text-transform: uppercase;">Libro de Reclamaciones — Hoja de Reclamación</h2>
+        <p style="font-size: 12px; color: #94a3b8; margin: 6px 0 0 0;">Fecha de registro: ${currentDate} • Alphasoft Innovation — RUC: 20612026387</p>
       </div>
-    `;
+      
+      <h3 style="color: #fbbf24; font-size: 14px; border-bottom: 1px solid #334155; padding-bottom: 6px;">1. Identificación del Consumidor Reclamante</h3>
+      <table style="width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 16px;">
+        <tr><td style="padding: 5px 0; color: #94a3b8; width: 180px;"><strong>Documento:</strong></td><td style="padding: 5px 0; color: #ffffff;">${claimData.documentType} - ${claimData.documentNumber}</td></tr>
+        <tr><td style="padding: 5px 0; color: #94a3b8;"><strong>Nombre / Razón Social:</strong></td><td style="padding: 5px 0; color: #ffffff;">${claimData.fullName}</td></tr>
+        <tr><td style="padding: 5px 0; color: #94a3b8;"><strong>Domicilio:</strong></td><td style="padding: 5px 0; color: #ffffff;">${claimData.address}</td></tr>
+        <tr><td style="padding: 5px 0; color: #94a3b8;"><strong>Teléfono:</strong></td><td style="padding: 5px 0; color: #ffffff;">${claimData.phone || 'No especificado'}</td></tr>
+        <tr><td style="padding: 5px 0; color: #94a3b8;"><strong>Correo Electrónico:</strong></td><td style="padding: 5px 0; color: #ffffff;">${claimData.email}</td></tr>
+      </table>
 
-    const resendRes = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${resendApiKey}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        from: 'AlphaSoft Reclamaciones <notificaciones@alphasoftinnovation.com>',
-        to: RECIPIENT_EMAILS,
-        cc: [claimData.email],
-        reply_to: claimData.email,
-        subject,
-        html: htmlContent
-      })
-    });
+      <h3 style="color: #fbbf24; font-size: 14px; border-bottom: 1px solid #334155; padding-bottom: 6px;">2. Identificación del Bien Contratado</h3>
+      <table style="width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 16px;">
+        <tr><td style="padding: 5px 0; color: #94a3b8; width: 180px;"><strong>Tipo de Bien:</strong></td><td style="padding: 5px 0; color: #ffffff; text-transform: capitalize;">${claimData.goodsType}</td></tr>
+        <tr><td style="padding: 5px 0; color: #94a3b8;"><strong>Monto Reclamado (S/):</strong></td><td style="padding: 5px 0; color: #ffffff;">${claimData.claimedAmount || 'No especificado'}</td></tr>
+        <tr><td style="padding: 5px 0; color: #94a3b8;"><strong>Descripción:</strong></td><td style="padding: 5px 0; color: #ffffff;">${claimData.goodsDescription}</td></tr>
+      </table>
 
-    if (resendRes.ok) return;
-  }
+      <h3 style="color: #fbbf24; font-size: 14px; border-bottom: 1px solid #334155; padding-bottom: 6px;">3. Detalle de la Reclamación y Pedido</h3>
+      <table style="width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 12px;">
+        <tr><td style="padding: 5px 0; color: #94a3b8; width: 180px;"><strong>Tipo de Solicitud:</strong></td><td style="padding: 5px 0; color: #fb923c; font-weight: bold;">${claimTypeLabel}</td></tr>
+        <tr><td style="padding: 5px 0; color: #94a3b8;"><strong>Fecha del Incidente:</strong></td><td style="padding: 5px 0; color: #ffffff;">${claimData.incidentDate}</td></tr>
+      </table>
+      <div style="margin-top: 10px; padding: 12px; background: #020617; border-radius: 8px; border: 1px solid #1e293b;">
+        <strong style="color: #fbbf24; display: block; margin-bottom: 4px; font-size: 12px;">Detalle del Reclamo / Queja:</strong>
+        <p style="margin: 0 0 12px 0; color: #e2e8f0; white-space: pre-wrap; font-size: 13px;">${claimData.details}</p>
+        <strong style="color: #fbbf24; display: block; margin-bottom: 4px; font-size: 12px;">Pedido Concreto del Consumidor:</strong>
+        <p style="margin: 0; color: #e2e8f0; white-space: pre-wrap; font-size: 13px;">${claimData.request}</p>
+      </div>
 
-  // 2. Envío mediante FormSubmit AJAX a legal@alphasoftinnovation.com con copia al consumidor
-  await fetch('https://formsubmit.co/ajax/legal@alphasoftinnovation.com', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Origin': 'https://alphasoftinnovation.com',
-      'Referer': 'https://alphasoftinnovation.com/libro-de-reclamaciones'
-    },
-    body: JSON.stringify({
-      _subject: subject,
-      _cc: claimData.email,
-      _replyto: claimData.email,
-      _template: 'table',
-      'Tipo de Registro': claimTypeLabel,
-      'Fecha del Incidente': claimData.incidentDate,
-      'Tipo y N° de Documento': `${claimData.documentType} - ${claimData.documentNumber}`,
-      'Nombre / Razón Social': claimData.fullName,
-      'Domicilio': claimData.address,
-      'Teléfono': claimData.phone || 'No especificado',
-      'Correo del Consumidor': claimData.email,
-      'Bien Contratado': claimData.goodsType,
-      'Monto Reclamado (S/)': claimData.claimedAmount || '0.00',
-      'Descripción del Bien': claimData.goodsDescription,
-      'Detalle del Reclamo / Queja': claimData.details,
-      'Pedido del Consumidor': claimData.request
-    })
+      <p style="font-size: 11px; color: #64748b; margin-top: 18px; text-align: center;">
+        Esta es una copia automática de su Hoja de Reclamación registrada conforme al Código de Protección y Defensa del Consumidor. Para consultas adicionales puede escribir a legal@alphasoftinnovation.com.
+      </p>
+    </div>
+  `;
+
+  // Enviar por Zoho Mail SMTP tanto a legal@alphasoftinnovation.com como en copia al usuario reclamante
+  return await sendZohoMail({
+    to: RECIPIENT_EMAILS,
+    cc: [claimData.email.trim()],
+    replyTo: claimData.email.trim(),
+    subject,
+    html: htmlContent,
+    senderName: 'AlphaSoft Libro de Reclamaciones',
+    useLegalAccount: true
   });
 }
 
@@ -105,7 +75,6 @@ export const POST = async ({ request }) => {
   try {
     const body = await request.json();
 
-    // Basic server-side validation
     if (!body.documentType || !body.documentNumber || !body.fullName || !body.address || !body.email || !body.incidentDate || !body.details || !body.request || !body.goodsType || !body.goodsDescription) {
       return new Response(JSON.stringify({ error: 'Faltan campos obligatorios' }), {
         status: 400,
@@ -113,7 +82,7 @@ export const POST = async ({ request }) => {
       });
     }
 
-    // Insert into database if DATABASE_URL is configured
+    // 1. Guardar en base de datos PostgreSQL (Neon)
     if (db) {
       try {
         await db.insert(claims).values({
@@ -137,25 +106,23 @@ export const POST = async ({ request }) => {
       }
     }
 
-    // Enviar notificación por correo a hola@alphasoftinnovation.com, rubenesteban@alphasoftinnovation.com y copia al cliente
-    try {
-      await sendClaimEmailNotification(body);
-    } catch (emailErr) {
-      console.error('Error sending claim email notification:', emailErr);
-    }
+    // 2. Enviar correo por Zoho Mail a legal@alphasoftinnovation.com y copia al usuario
+    await sendClaimEmailNotification(body);
 
     return new Response(JSON.stringify({
       success: true,
       message: 'Reclamo guardado y notificado exitosamente',
-      recipients: RECIPIENT_EMAILS
+      recipients: [...RECIPIENT_EMAILS, body.email]
     }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
     });
 
   } catch (error) {
-    console.error('Error saving claim:', error);
-    return new Response(JSON.stringify({ error: 'Error interno del servidor al guardar el reclamo' }), {
+    console.error('Error processing claim:', error);
+    return new Response(JSON.stringify({
+      error: error?.message || 'Error interno del servidor al procesar el reclamo'
+    }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
     });
