@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { getNowPeruDateTime } from '../lib/dateUtils.js';
+import { printClaimPdf } from '../lib/claimPdf.js';
 
 export default function ClaimsBook() {
   const [currentPeruDate, setCurrentPeruDate] = useState('');
@@ -21,6 +22,7 @@ export default function ClaimsBook() {
   });
   const [errors, setErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submittedClaim, setSubmittedClaim] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState(null);
 
@@ -102,6 +104,11 @@ export default function ClaimsBook() {
         const data = await response.json();
 
         if (response.ok) {
+          setSubmittedClaim(data.claim || {
+            ...formData,
+            id: data.claimCode ? parseInt(data.claimCode.replace(/\D/g, '')) : 1,
+            createdAt: new Date().toISOString()
+          });
           setIsSubmitted(true);
         } else {
           setSubmitError(data.error || 'Ocurrió un error al enviar el formulario.');
@@ -163,16 +170,35 @@ export default function ClaimsBook() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-white mb-2">¡Formulario Enviado!</h3>
-              <p className="text-xs sm:text-sm text-slate-400 mb-6 max-w-md mx-auto leading-relaxed">
-                Hemos registrado exitosamente tu {formData.claimType === 'queja' ? 'queja' : 'reclamo'}. Hemos enviado el cargo de confirmación a <strong>{formData.email}</strong> y a nuestra área legal (<strong>legal@alphasoftinnovation.com</strong>).
+              <div className="inline-block px-3 py-1 bg-orange-500/10 border border-orange-500/30 rounded-lg text-orange-400 font-mono text-xs font-bold mb-3">
+                Hoja N° {submittedClaim?.id ? `LR-${String(submittedClaim.id).padStart(5, '0')}` : 'LR-00001'}
+              </div>
+              <h3 className="text-base sm:text-lg font-bold text-white mb-2">¡Hoja de Reclamación Registrada!</h3>
+              <p className="text-xs sm:text-sm text-slate-300 mb-2 max-w-md mx-auto leading-relaxed">
+                Hemos registrado exitosamente tu {formData.claimType === 'queja' ? 'queja' : 'reclamo'}. Se ha enviado una copia oficial de confirmación a <strong>{formData.email}</strong> y a nuestra área legal (<strong>legal@alphasoftinnovation.com</strong>).
               </p>
-              <button 
-                onClick={() => window.location.href = '/'}
-                className="px-6 py-2 text-xs font-medium bg-slate-800 hover:bg-slate-700 text-white rounded-lg transition-colors cursor-pointer"
-              >
-                Volver al inicio
-              </button>
+              <p className="text-[11px] text-slate-500 mb-6 max-w-md mx-auto">
+                Conforme al Código de Protección y Defensa del Consumidor (Ley N° 29571), responderemos a tu solicitud en un plazo máximo de quince (15) días hábiles.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => printClaimPdf(submittedClaim || formData)}
+                  className="w-full sm:w-auto px-5 py-2.5 text-xs font-bold bg-gradient-to-r from-amber-500 via-orange-500 to-red-600 hover:from-amber-400 hover:to-red-500 text-white rounded-xl shadow-lg shadow-orange-500/20 transition-all cursor-pointer flex items-center justify-center gap-2"
+                >
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                  </svg>
+                  Descargar Copia en PDF / Imprimir
+                </button>
+                <button 
+                  type="button"
+                  onClick={() => window.location.href = '/'}
+                  className="w-full sm:w-auto px-5 py-2.5 text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl transition-colors cursor-pointer border border-slate-700"
+                >
+                  Volver al inicio
+                </button>
+              </div>
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">

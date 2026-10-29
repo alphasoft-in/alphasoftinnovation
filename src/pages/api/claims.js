@@ -8,16 +8,18 @@ export const prerender = false;
 const PRIMARY_RECIPIENT = 'legal@alphasoftinnovation.com';
 const CC_RECIPIENT = 'rubenesteban@alphasoftinnovation.com';
 
-async function sendClaimEmailNotification(claimData) {
+async function sendClaimEmailNotification(claimData, claimCode) {
   const claimTypeLabel = (claimData.claimType || 'reclamo').toUpperCase();
   const currentDate = getNowPeruDateTime();
+  const codeLabel = claimCode ? `[${claimCode}] ` : '';
 
-  const subject = `[LIBRO DE RECLAMACIONES - ${claimTypeLabel}] ${claimData.fullName} (${claimData.documentType}: ${claimData.documentNumber})`;
+  const subject = `${codeLabel}[LIBRO DE RECLAMACIONES - ${claimTypeLabel}] ${claimData.fullName} (${claimData.documentType}: ${claimData.documentNumber})`;
 
   const htmlContent = `
     <div style="font-family: Arial, sans-serif; max-width: 640px; margin: 0 auto; background: #0f172a; color: #f8fafc; padding: 24px; border-radius: 12px; border: 1px solid #f97316;">
       <div style="text-align: center; border-bottom: 1px solid #334155; padding-bottom: 14px; margin-bottom: 18px;">
         <h2 style="color: #fb923c; margin: 0; font-size: 18px; text-transform: uppercase;">Libro de Reclamaciones — Hoja de Reclamación</h2>
+        ${claimCode ? `<p style="font-size: 15px; font-weight: bold; color: #f97316; margin: 4px 0 0 0; font-family: monospace;">N° DE HOJA: ${claimCode}</p>` : ''}
         <p style="font-size: 12px; color: #94a3b8; margin: 6px 0 0 0;">Fecha y hora de registro: ${currentDate} (Lima, Perú) • Alphasoft Innovation — RUC: 20612026387</p>
       </div>
       
@@ -79,9 +81,10 @@ export const POST = async ({ request }) => {
     }
 
     // 1. Guardar en base de datos PostgreSQL (Neon)
+    let insertedClaim = null;
     if (db) {
       try {
-        await db.insert(claims).values({
+        const result = await db.insert(claims).values({
           documentType: body.documentType,
           documentNumber: body.documentNumber,
           fullName: body.fullName,
@@ -96,18 +99,30 @@ export const POST = async ({ request }) => {
           details: body.details,
           request: body.request,
           status: 'pending'
-        });
+        }).returning();
+
+        if (result && result.length > 0) {
+          insertedClaim = result[0];
+        }
       } catch (dbErr) {
         console.error('Error saving claim to DB:', dbErr);
       }
     }
 
+    const claimCode = insertedClaim ? `LR-${String(insertedClaim.id).padStart(5, '0')}` : null;
+
     // 2. Enviar correo por Zoho Mail a legal@alphasoftinnovation.com y copia al usuario
-    await sendClaimEmailNotification(body);
+    await sendClaimEmailNotification(body, claimCode);
 
     return new Response(JSON.stringify({
       success: true,
       message: 'Reclamo guardado y notificado exitosamente',
+      claim: insertedClaim || {
+        ...body,
+        id: 1,
+        createdAt: new Date().toISOString()
+      },
+      claimCode: claimCode || 'LR-00001',
       recipients: [PRIMARY_RECIPIENT, CC_RECIPIENT, body.email]
     }), {
       status: 200,
