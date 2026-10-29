@@ -1,6 +1,8 @@
 import { db } from '../../db/index.js';
 import { claims } from '../../db/schema.js';
 
+export const prerender = false;
+
 const RECIPIENT_EMAILS = [
   'legal@alphasoftinnovation.com'
 ];
@@ -111,23 +113,29 @@ export const POST = async ({ request }) => {
       });
     }
 
-    // Insert into database
-    await db.insert(claims).values({
-      documentType: body.documentType,
-      documentNumber: body.documentNumber,
-      fullName: body.fullName,
-      address: body.address,
-      email: body.email,
-      phone: body.phone || null,
-      goodsType: body.goodsType,
-      claimedAmount: body.claimedAmount || null,
-      goodsDescription: body.goodsDescription,
-      claimType: body.claimType || 'reclamo',
-      incidentDate: body.incidentDate,
-      details: body.details,
-      request: body.request,
-      status: 'pending'
-    });
+    // Insert into database if DATABASE_URL is configured
+    if (db) {
+      try {
+        await db.insert(claims).values({
+          documentType: body.documentType,
+          documentNumber: body.documentNumber,
+          fullName: body.fullName,
+          address: body.address,
+          email: body.email,
+          phone: body.phone || null,
+          goodsType: body.goodsType,
+          claimedAmount: body.claimedAmount || null,
+          goodsDescription: body.goodsDescription,
+          claimType: body.claimType || 'reclamo',
+          incidentDate: body.incidentDate,
+          details: body.details,
+          request: body.request,
+          status: 'pending'
+        });
+      } catch (dbErr) {
+        console.error('Error saving claim to DB:', dbErr);
+      }
+    }
 
     // Enviar notificación por correo a hola@alphasoftinnovation.com, rubenesteban@alphasoftinnovation.com y copia al cliente
     try {

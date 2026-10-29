@@ -1,6 +1,8 @@
 import { db } from '../../db/index.js';
 import { contacts } from '../../db/schema.js';
 
+export const prerender = false;
+
 const RECIPIENT_EMAILS = [
   'hola@alphasoftinnovation.com',
   'rubenesteban@alphasoftinnovation.com'
@@ -134,14 +136,20 @@ export const POST = async ({ request }) => {
 
     const enrichedMessage = `[Documento: ${cleanPayload.documentNumber} | Servicio: ${cleanPayload.serviceType}]\n${cleanPayload.message}`;
 
-    // Guardar en base de datos PostgreSQL (Neon)
-    await db.insert(contacts).values({
-      name: cleanPayload.name,
-      email: cleanPayload.email,
-      phone: cleanPayload.phone,
-      message: enrichedMessage,
-      source: 'web_form'
-    });
+    // Guardar en base de datos PostgreSQL (Neon) si DATABASE_URL está configurada
+    if (db) {
+      try {
+        await db.insert(contacts).values({
+          name: cleanPayload.name,
+          email: cleanPayload.email,
+          phone: cleanPayload.phone,
+          message: enrichedMessage,
+          source: 'web_form'
+        });
+      } catch (dbErr) {
+        console.error('Error saving contact to DB:', dbErr);
+      }
+    }
 
     // Enviar notificación por correo a hola@alphasoftinnovation.com y rubenesteban@alphasoftinnovation.com
     try {

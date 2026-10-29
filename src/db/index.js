@@ -8,5 +8,5 @@ const connectionString = typeof process !== 'undefined' && process.env.DATABASE_
   ? process.env.DATABASE_URL 
   : import.meta.env?.DATABASE_URL;
 
-const sql = neon(connectionString);
-export const db = drizzle(sql, { schema });
+const sql = connectionString ? neon(connectionString) : null;
+export const db = sql ? drizzle(sql, { schema }) : null;
