@@ -5,8 +5,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12 text-center md:text-left">
           
           <div className="md:col-span-2 flex flex-col items-center md:items-start">
-            <a href="/" className="flex items-center gap-2.5 mb-4 hover:opacity-90 transition-opacity w-fit cursor-pointer">
-              <img src="/apple-touch-icon.png" alt="AlphaSoft Logo" className="w-8 h-8 md:w-9 md:h-9 rounded-lg object-contain border border-orange-500/30 shadow-md shadow-orange-500/10" />
+            <a href="/" className="flex items-center gap-2 mb-4 hover:opacity-90 transition-opacity w-fit cursor-pointer">
+              <img src="/apple-touch-icon.png?v=2" alt="AlphaSoft Logo" className="w-9 h-9 md:w-10 md:h-10 object-contain drop-shadow-[0_0_8px_rgba(249,115,22,0.25)]" />
               <div className="flex flex-col leading-none text-left">
                 <span className="font-extrabold text-base md:text-lg tracking-tight text-white">
                   ALPHA<span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-red-500">SOFT</span>

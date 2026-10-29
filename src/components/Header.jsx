@@ -27,8 +27,8 @@ export default function Header() {
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-950/90 backdrop-blur-md shadow-lg shadow-slate-950/20' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <a href="/" className="flex-shrink-0 flex items-center gap-2.5 hover:opacity-90 transition-opacity cursor-pointer">
-            <img src="/apple-touch-icon.png" alt="AlphaSoft Logo" className="w-8 h-8 md:w-9 md:h-9 rounded-lg object-contain border border-orange-500/30 shadow-md shadow-orange-500/10" />
+          <a href="/" className="flex-shrink-0 flex items-center gap-2 hover:opacity-90 transition-opacity cursor-pointer">
+            <img src="/apple-touch-icon.png?v=2" alt="AlphaSoft Logo" className="w-9 h-9 md:w-10 md:h-10 object-contain drop-shadow-[0_0_8px_rgba(249,115,22,0.25)]" />
             <div className="flex flex-col leading-none">
               <span className="font-extrabold text-base md:text-lg tracking-tight text-white">
                 ALPHA<span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-red-500">SOFT</span>
