@@ -22,12 +22,12 @@ export default function WhatsAppButton() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Contactar por WhatsApp"
-        className="relative flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-[#25D366] text-white rounded-full shadow-lg hover:shadow-2xl cursor-pointer"
+        className="relative flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-amber-500 via-orange-500 to-red-600 text-white rounded-full shadow-[0_0_25px_rgba(249,115,22,0.4)] hover:shadow-[0_0_35px_rgba(249,115,22,0.6)] cursor-pointer"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
         {/* Pulsing ring effect */}
-        <span className="absolute inline-flex w-full h-full rounded-full bg-[#25D366] opacity-75 animate-ping" style={{ animationDuration: '3s' }}></span>
+        <span className="absolute inline-flex w-full h-full rounded-full bg-orange-500 opacity-60 animate-ping" style={{ animationDuration: '3s' }}></span>
         
         {/* SVG Icon */}
         <svg 

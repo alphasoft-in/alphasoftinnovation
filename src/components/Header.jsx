@@ -27,23 +27,26 @@ export default function Header() {
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-950/90 backdrop-blur-md shadow-lg shadow-slate-950/20' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <a href="/" className="flex-shrink-0 flex items-center gap-2 hover:opacity-90 transition-opacity cursor-pointer">
-            <div className="w-7 h-7 md:w-8 md:h-8 rounded bg-gradient-to-br from-cyan-500 to-violet-600 flex items-center justify-center">
-              <span className="text-white font-bold text-lg md:text-xl">A</span>
+          <a href="/" className="flex-shrink-0 flex items-center gap-2.5 hover:opacity-90 transition-opacity cursor-pointer">
+            <img src="/apple-touch-icon.png" alt="AlphaSoft Logo" className="w-8 h-8 md:w-9 md:h-9 rounded-lg object-contain border border-orange-500/30 shadow-md shadow-orange-500/10" />
+            <div className="flex flex-col leading-none">
+              <span className="font-extrabold text-base md:text-lg tracking-tight text-white">
+                ALPHA<span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-red-500">SOFT</span>
+              </span>
+              <span className="text-[8px] md:text-[9px] tracking-[0.18em] text-slate-400 uppercase font-medium mt-0.5">
+                Innovation Technology
+              </span>
             </div>
-            <span className="font-bold text-lg md:text-xl tracking-tight text-white">
-              AlphaSoft <span className="text-cyan-400">Innovation</span>
-            </span>
           </a>
           
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-6 lg:space-x-8">
             {navLinks.map((link) => {
               const isActive = link.href === '/' ? currentPath === '/' : currentPath.startsWith(link.href);
               return (
                 <a 
                   key={link.name} 
                   href={link.href}
-                  className={`transition-colors duration-200 text-sm font-medium ${isActive ? 'text-cyan-400' : 'text-slate-300 hover:text-white'}`}
+                  className={`transition-colors duration-200 text-xs lg:text-sm font-medium ${isActive ? 'text-orange-400' : 'text-slate-300 hover:text-white'}`}
                 >
                   {link.name}
                 </a>
@@ -52,7 +55,12 @@ export default function Header() {
           </nav>
           
           <div className="hidden md:flex">
-            <a href="tel:959464155" className="bg-white/10 hover:bg-white/20 text-white px-5 py-2 rounded-full font-medium transition-all border border-white/10 hover:border-white/30 backdrop-blur-sm cursor-pointer">
+            <a 
+              href="https://wa.me/51959464155?text=Hola%20AlphaSoft%2C%20me%20gustar%C3%ADa%20agendar%20una%20asesor%C3%ADa%20tecnol%C3%B3gica%20para%20mi%20empresa."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-500/15 to-red-600/15 hover:from-amber-500/25 hover:to-red-600/25 text-white px-4 py-1.5 lg:px-5 lg:py-2 rounded-full text-xs lg:text-sm font-medium transition-all border border-orange-500/30 hover:border-orange-400/60 backdrop-blur-sm cursor-pointer"
+            >
               Agendar Asesoría
             </a>
           </div>
@@ -87,12 +95,23 @@ export default function Header() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`block px-3 py-2 text-base font-medium rounded-md ${isActive ? 'text-cyan-400 bg-slate-800' : 'text-slate-300 hover:text-white hover:bg-slate-800'}`}
+                  className={`block px-3 py-2 text-base font-medium rounded-md ${isActive ? 'text-orange-400 bg-slate-800' : 'text-slate-300 hover:text-white hover:bg-slate-800'}`}
                 >
                   {link.name}
                 </a>
               );
             })}
+            <div className="pt-2 pb-1 px-3">
+              <a
+                href="https://wa.me/51959464155?text=Hola%20AlphaSoft%2C%20me%20gustar%C3%ADa%20agendar%20una%20asesor%C3%ADa%20tecnol%C3%B3gica%20para%20mi%20empresa."
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block w-full text-center bg-gradient-to-r from-amber-500 via-orange-500 to-red-600 text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all shadow-md"
+              >
+                Agendar Asesoría
+              </a>
+            </div>
           </div>
         </div>
       )}

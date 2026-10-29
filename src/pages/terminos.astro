@@ -1,15 +1,19 @@
 ---
+export const prerender = true;
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
 ---
 
-<Layout title="Términos y Condiciones">
+<Layout 
+	title="Términos y Condiciones"
+	description="Términos y Condiciones Generales de Servicio de AlphaSoft Innovation Technology en la República del Perú."
+>
 	<Header client:load />
 	<main class="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-		<h1 class="text-3xl md:text-5xl font-bold mb-10 text-white">Términos y <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500">Condiciones de Servicio</span></h1>
+		<h1 class="text-xl sm:text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-white">Términos y <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-red-500">Condiciones de Servicio</span></h1>
 		
-		<div class="space-y-10 text-slate-300 leading-relaxed text-justify">
+		<div class="space-y-10 text-sm text-slate-300 leading-relaxed text-justify">
 			
 			<section>
 				<h2 class="text-xl font-bold text-white mb-4">1. Identificación de las Partes y Aceptación</h2>
@@ -71,7 +75,7 @@ import Footer from '../components/Footer.jsx';
 			
 			<div class="mt-12 pt-8 border-t border-slate-800 text-sm text-slate-500">
 				<p><strong>Fecha de vigencia:</strong> Agosto de 2026</p>
-				<p>Este documento constituye un acuerdo legalmente vinculante. Para consultas legales, diríjase a: hola@alphasoftinnovation.com</p>
+				<p>Este documento constituye un acuerdo legalmente vinculante. Para consultas legales, diríjase a: legal@alphasoftinnovation.com</p>
 			</div>
 		</div>
 	</main>

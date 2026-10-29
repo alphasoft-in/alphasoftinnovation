@@ -39,13 +39,13 @@ export default function CookieBanner() {
             
             <div className="flex-1 text-slate-300 text-xs leading-relaxed">
               <h4 className="text-white font-semibold mb-1 text-sm flex items-center gap-2">
-                <svg className="w-4 h-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-4 h-4 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
                 Privacidad y Cookies
               </h4>
               <p>
-                Utilizamos cookies propias y de terceros para mejorar su experiencia, analizar el tráfico y personalizar el contenido. Al hacer clic en "Aceptar", usted consiente el uso de todas las cookies. Puede obtener más información leyendo nuestra <a href="/privacidad" className="text-cyan-400 hover:underline">Política de Privacidad</a>.
+                Utilizamos cookies propias y de terceros para mejorar su experiencia, analizar el tráfico y personalizar el contenido. Al hacer clic en "Aceptar", usted consiente el uso de todas las cookies. Puede obtener más información leyendo nuestra <a href="/privacidad" className="text-orange-400 hover:underline">Política de Privacidad</a>.
               </p>
             </div>
             
@@ -58,7 +58,7 @@ export default function CookieBanner() {
               </button>
               <button 
                 onClick={acceptCookies}
-                className="px-4 py-1.5 text-xs rounded-lg bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-bold hover:shadow-lg hover:shadow-cyan-500/25 transition-all cursor-pointer"
+                className="px-4 py-1.5 text-xs rounded-lg bg-gradient-to-r from-amber-500 via-orange-500 to-red-600 text-white font-bold hover:shadow-lg hover:shadow-orange-500/25 transition-all cursor-pointer"
               >
                 Aceptar Cookies
               </button>

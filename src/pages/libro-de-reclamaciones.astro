@@ -1,0 +1,18 @@
+---
+export const prerender = true;
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.jsx';
+import ClaimsBook from '../components/ClaimsBook.jsx';
+import Footer from '../components/Footer.jsx';
+---
+
+<Layout 
+	title="Libro de Reclamaciones"
+	description="Libro de Reclamaciones virtual de AlphaSoft Innovation Technology (RUC 20612026387), conforme al Código de Protección y Defensa del Consumidor."
+>
+	<Header client:load />
+	<main class="pt-24 md:pt-28">
+		<ClaimsBook client:visible />
+	</main>
+	<Footer />
+</Layout>

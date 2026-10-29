@@ -1,13 +1,17 @@
 ---
+export const prerender = true;
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.jsx';
 import Contact from '../components/Contact.jsx';
 import Footer from '../components/Footer.jsx';
 ---
 
-<Layout title="Contacto">
+<Layout 
+	title="Contacto" 
+	description="Ponte en contacto con AlphaSoft Innovation en Lima, Perú. Solicita una consultoría gratuita para tu próximo proyecto de software a medida."
+>
 	<Header client:load />
-	<main class="pt-24 md:pt-28">
+	<main class="pt-20 md:pt-22">
 		<Contact client:visible />
 	</main>
 	<Footer />

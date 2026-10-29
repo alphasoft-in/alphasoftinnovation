@@ -1,13 +1,17 @@
 ---
+export const prerender = true;
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
 import SystemsGuide from '../components/SystemsGuide.jsx';
 ---
 
-<Layout title="Sistemas Empresariales">
+<Layout 
+	title="Sistemas Empresariales" 
+	description="Arquitectura empresarial digital a medida: conoce cómo los sistemas ERP, CRM, BI y WMS impulsan la escalabilidad y rentabilidad de tu corporación."
+>
 	<Header client:load />
-	<main class="pt-28">
+	<main class="pt-24">
 		<SystemsGuide client:visible />
 	</main>
 	<Footer />

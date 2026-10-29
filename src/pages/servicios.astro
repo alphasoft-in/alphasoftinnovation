@@ -1,11 +1,15 @@
 ---
+export const prerender = true;
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.jsx';
 import Services from '../components/Services.jsx';
 import Footer from '../components/Footer.jsx';
 ---
 
-<Layout title="Servicios">
+<Layout 
+	title="Servicios" 
+	description="Catálogo de servicios de AlphaSoft Innovation: desarrollo web, sistemas a medida, automatización de procesos, ciencia de datos e integración de APIs."
+>
 	<Header client:load />
 	<main class="pt-28">
 		<Services client:visible />

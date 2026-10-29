@@ -1,16 +1,22 @@
 ---
+export const prerender = true;
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.jsx';
 import Hero from '../components/Hero.jsx';
-import Technologies from '../components/Technologies.jsx';
 import ErpSection from '../components/ErpSection.jsx';
+import MethodologyAndIndustries from '../components/MethodologyAndIndustries.jsx';
+import Technologies from '../components/Technologies.jsx';
 import Footer from '../components/Footer.jsx';
 ---
 
-<Layout title="Inicio">
+<Layout 
+	title="Inicio" 
+	description="AlphaSoft Innovation Technology - Especialistas en diseño web, desarrollo de software, ERP y consultoría tecnológica a medida en Perú."
+>
 	<Header client:load />
 	<main>
 		<Hero client:load />
+		<MethodologyAndIndustries client:visible />
 		<ErpSection client:visible />
 		<Technologies client:visible />
 	</main>

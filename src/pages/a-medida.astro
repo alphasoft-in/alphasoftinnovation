@@ -1,14 +1,20 @@
 ---
+export const prerender = true;
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
 import CustomVsCms from '../components/CustomVsCms.jsx';
+import CasesAndFaq from '../components/CasesAndFaq.jsx';
 ---
 
-<Layout title="Desarrollo a Medida vs CMS">
+<Layout 
+	title="Desarrollo a Medida vs CMS" 
+	description="Descubre por qué el desarrollo de software a medida supera a WordPress y otros CMS en velocidad, seguridad, SEO y escalabilidad empresarial."
+>
 	<Header client:load />
-	<main class="pt-24 pb-0 sm:pb-12">
+	<main class="pt-24 pb-0">
 		<CustomVsCms client:visible />
+		<CasesAndFaq client:visible />
 	</main>
 	<Footer />
 </Layout>

@@ -1,11 +1,15 @@
 ---
+export const prerender = true;
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.jsx';
 import About from '../components/About.jsx';
 import Footer from '../components/Footer.jsx';
 ---
 
-<Layout title="Nosotros">
+<Layout 
+	title="Nosotros" 
+	description="Conoce a AlphaSoft Innovation: empresa peruana especialista en transformación digital, software B2B, ciencia de datos y soluciones para minería y agricultura."
+>
 	<Header client:load />
 	<main class="pt-28">
 		<About client:visible />

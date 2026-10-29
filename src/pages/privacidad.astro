@@ -1,15 +1,19 @@
 ---
+export const prerender = true;
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
 ---
 
-<Layout title="Política de Privacidad">
+<Layout 
+	title="Política de Privacidad"
+	description="Política de Privacidad y Tratamiento de Datos Personales de AlphaSoft Innovation Technology conforme a la Ley N° 29733 del Perú."
+>
 	<Header client:load />
 	<main class="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-		<h1 class="text-3xl md:text-5xl font-bold mb-10 text-white">Política de <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500">Privacidad</span></h1>
+		<h1 class="text-xl sm:text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-white">Política de <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-red-500">Privacidad</span></h1>
 		
-		<div class="space-y-10 text-slate-300 leading-relaxed text-justify">
+		<div class="space-y-10 text-sm text-slate-300 leading-relaxed text-justify">
 			
 			<section>
 				<h2 class="text-xl font-bold text-white mb-4">1. Marco Normativo y Objetivo</h2>
@@ -55,7 +59,7 @@ import Footer from '../components/Footer.jsx';
 			<section>
 				<h2 class="text-xl font-bold text-white mb-4">6. Ejercicio de los Derechos ARCO</h2>
 				<p>
-					Los Titulares de los datos personales conservan en todo momento el derecho a ejercer sus derechos de <strong>Acceso, Rectificación, Cancelación y Oposición (Derechos ARCO)</strong>. Para el ejercicio de dichos derechos, El Titular deberá dirigir una solicitud expresa, adjuntando copia de su Documento Nacional de Identidad o documento equivalente, al correo electrónico legal designado: <a href="mailto:hola@alphasoftinnovation.com" class="text-violet-400 hover:underline">hola@alphasoftinnovation.com</a>, la cual será atendida en los plazos establecidos por ley.
+					Los Titulares de los datos personales conservan en todo momento el derecho a ejercer sus derechos de <strong>Acceso, Rectificación, Cancelación y Oposición (Derechos ARCO)</strong>. Para el ejercicio de dichos derechos, El Titular deberá dirigir una solicitud expresa, adjuntando copia de su Documento Nacional de Identidad o documento equivalente, al correo electrónico legal designado: <a href="mailto:legal@alphasoftinnovation.com" class="text-orange-400 hover:underline">legal@alphasoftinnovation.com</a>, la cual será atendida en los plazos establecidos por ley.
 				</p>
 			</section>
 			
