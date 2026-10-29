@@ -1,0 +1,18 @@
+---
+export const prerender = true;
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.jsx';
+import AdminDashboard from '../components/AdminDashboard.jsx';
+import Footer from '../components/Footer.jsx';
+---
+
+<Layout 
+	title="Panel Superadministrador | AlphaSoft Innovation" 
+	description="Panel de administración de Libro de Reclamaciones y Solicitudes Comerciales de AlphaSoft Innovation."
+>
+	<Header client:load />
+	<main class="pt-24 md:pt-28 min-h-screen">
+		<AdminDashboard client:load />
+	</main>
+	<Footer />
+</Layout>
