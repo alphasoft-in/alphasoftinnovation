@@ -117,7 +117,13 @@ export const GET = async ({ request }) => {
         contacts: contactsList,
         scans: scansList
       }),
-      { status: 200, headers: { 'Content-Type': 'application/json' } }
+      {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json',
+          'Cache-Control': 'no-store, no-cache, must-revalidate'
+        }
+      }
     );
   } catch (error) {
     console.error('Error fetching admin data:', error);
