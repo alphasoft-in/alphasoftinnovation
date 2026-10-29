@@ -3,6 +3,7 @@ import { desc, eq } from 'drizzle-orm';
 import { db } from '../../db/index.js';
 import { claims, contacts, scans } from '../../db/schema.js';
 import { sendZohoMail } from '../../lib/mailer.js';
+import { getNowPeruDateTime } from '../../lib/dateUtils.js';
 
 export const prerender = false;
 
@@ -155,11 +156,7 @@ export const PATCH = async ({ request }) => {
       });
     }
 
-    const responseDate = new Intl.DateTimeFormat('es-PE', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric'
-    }).format(new Date());
+    const responseDate = getNowPeruDateTime();
 
     if (db) {
       await db

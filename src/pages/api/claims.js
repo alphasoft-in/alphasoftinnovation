@@ -1,6 +1,7 @@
 import { db } from '../../db/index.js';
 import { claims } from '../../db/schema.js';
 import { sendZohoMail } from '../../lib/mailer.js';
+import { getNowPeruDateTime, formatPeruDateTime } from '../../lib/dateUtils.js';
 
 export const prerender = false;
 
@@ -9,11 +10,7 @@ const CC_RECIPIENT = 'rubenesteban@alphasoftinnovation.com';
 
 async function sendClaimEmailNotification(claimData) {
   const claimTypeLabel = (claimData.claimType || 'reclamo').toUpperCase();
-  const currentDate = new Intl.DateTimeFormat('es-PE', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric'
-  }).format(new Date());
+  const currentDate = getNowPeruDateTime();
 
   const subject = `[LIBRO DE RECLAMACIONES - ${claimTypeLabel}] ${claimData.fullName} (${claimData.documentType}: ${claimData.documentNumber})`;
 
@@ -21,7 +18,7 @@ async function sendClaimEmailNotification(claimData) {
     <div style="font-family: Arial, sans-serif; max-width: 640px; margin: 0 auto; background: #0f172a; color: #f8fafc; padding: 24px; border-radius: 12px; border: 1px solid #f97316;">
       <div style="text-align: center; border-bottom: 1px solid #334155; padding-bottom: 14px; margin-bottom: 18px;">
         <h2 style="color: #fb923c; margin: 0; font-size: 18px; text-transform: uppercase;">Libro de Reclamaciones — Hoja de Reclamación</h2>
-        <p style="font-size: 12px; color: #94a3b8; margin: 6px 0 0 0;">Fecha de registro: ${currentDate} • Alphasoft Innovation — RUC: 20612026387</p>
+        <p style="font-size: 12px; color: #94a3b8; margin: 6px 0 0 0;">Fecha y hora de registro: ${currentDate} (Lima, Perú) • Alphasoft Innovation — RUC: 20612026387</p>
       </div>
       
       <h3 style="color: #fbbf24; font-size: 14px; border-bottom: 1px solid #334155; padding-bottom: 6px;">1. Identificación del Consumidor Reclamante</h3>
@@ -43,7 +40,7 @@ async function sendClaimEmailNotification(claimData) {
       <h3 style="color: #fbbf24; font-size: 14px; border-bottom: 1px solid #334155; padding-bottom: 6px;">3. Detalle de la Reclamación y Pedido</h3>
       <table style="width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 12px;">
         <tr><td style="padding: 5px 0; color: #94a3b8; width: 180px;"><strong>Tipo de Solicitud:</strong></td><td style="padding: 5px 0; color: #fb923c; font-weight: bold;">${claimTypeLabel}</td></tr>
-        <tr><td style="padding: 5px 0; color: #94a3b8;"><strong>Fecha del Incidente:</strong></td><td style="padding: 5px 0; color: #ffffff;">${claimData.incidentDate}</td></tr>
+        <tr><td style="padding: 5px 0; color: #94a3b8; width: 180px;"><strong>Fecha del Incidente:</strong></td><td style="padding: 5px 0; color: #ffffff;">${formatPeruDateTime(claimData.incidentDate)}</td></tr>
       </table>
       <div style="margin-top: 10px; padding: 12px; background: #020617; border-radius: 8px; border: 1px solid #1e293b;">
         <strong style="color: #fbbf24; display: block; margin-bottom: 4px; font-size: 12px;">Detalle del Reclamo / Queja:</strong>

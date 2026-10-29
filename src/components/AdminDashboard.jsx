@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { formatPeruDateTime } from '../lib/dateUtils.js';
 
 export default function AdminDashboard() {
   const [token, setToken] = useState('');
@@ -175,18 +176,7 @@ export default function AdminDashboard() {
   };
 
   const formatDate = (dateStr) => {
-    if (!dateStr) return '-';
-    try {
-      return new Intl.DateTimeFormat('es-PE', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-      }).format(new Date(dateStr));
-    } catch {
-      return String(dateStr);
-    }
+    return formatPeruDateTime(dateStr);
   };
 
   const getStatusBadge = (status) => {
@@ -702,7 +692,7 @@ export default function AdminDashboard() {
                         3. Fundamento del Reclamo
                       </span>
                       <span className="text-[11px] text-slate-500">
-                        Incidente: <strong className="text-slate-800">{selectedClaim.incidentDate}</strong>
+                        Incidente: <strong className="text-slate-800">{formatPeruDateTime(selectedClaim.incidentDate)}</strong>
                       </span>
                     </div>
 

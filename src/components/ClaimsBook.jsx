@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { getNowPeruDateTime } from '../lib/dateUtils.js';
 
 export default function ClaimsBook() {
+  const [currentPeruDate, setCurrentPeruDate] = useState('');
   const [formData, setFormData] = useState({
     documentType: 'DNI',
     documentNumber: '',
@@ -21,6 +23,10 @@ export default function ClaimsBook() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState(null);
+
+  useEffect(() => {
+    setCurrentPeruDate(getNowPeruDateTime());
+  }, []);
 
   const validateForm = () => {
     let newErrors = {};
@@ -179,7 +185,7 @@ export default function ClaimsBook() {
                     <svg className="w-3.5 h-3.5 text-orange-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
-                    Fecha: {new Intl.DateTimeFormat('es-PE', { day: '2-digit', month: '2-digit', year: 'numeric' }).format(new Date())}
+                    Fecha: {currentPeruDate || getNowPeruDateTime()}
                   </span>
                   <span className="hidden sm:inline">•</span>
                   <span>Alphasoft Innovation — RUC: 20612026387</span>

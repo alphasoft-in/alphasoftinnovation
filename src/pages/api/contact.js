@@ -1,6 +1,7 @@
 import { db } from '../../db/index.js';
 import { contacts } from '../../db/schema.js';
 import { sendZohoMail } from '../../lib/mailer.js';
+import { getNowPeruDateTime } from '../../lib/dateUtils.js';
 
 export const prerender = false;
 
@@ -8,11 +9,7 @@ const PRIMARY_RECIPIENT = 'hola@alphasoftinnovation.com';
 const CC_RECIPIENT = 'rubenesteban@alphasoftinnovation.com';
 
 async function sendContactEmailNotification({ name, documentNumber, serviceType, phone, email, message }) {
-  const currentDate = new Intl.DateTimeFormat('es-PE', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric'
-  }).format(new Date());
+  const currentDate = getNowPeruDateTime();
 
   const subject = `Solicitud de Contacto: ${serviceType} — ${name} (${documentNumber})`;
 
@@ -20,7 +17,7 @@ async function sendContactEmailNotification({ name, documentNumber, serviceType,
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0f172a; color: #f8fafc; padding: 24px; border-radius: 12px; border: 1px solid #f97316;">
       <div style="border-bottom: 1px solid #334155; padding-bottom: 12px; margin-bottom: 16px;">
         <h2 style="color: #fb923c; margin: 0; font-size: 18px;">Solicitud de Contacto — AlphaSoft Innovation</h2>
-        <p style="font-size: 12px; color: #94a3b8; margin: 6px 0 0 0;">Fecha: ${currentDate} • Hemos recibido tu consulta y nuestro equipo te responderá a la brevedad.</p>
+        <p style="font-size: 12px; color: #94a3b8; margin: 6px 0 0 0;">Fecha y hora: ${currentDate} (Lima, Perú) • Hemos recibido tu consulta y nuestro equipo te responderá a la brevedad.</p>
       </div>
       <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
         <tr><td style="padding: 8px 0; color: #94a3b8; width: 180px;"><strong>Tipo de Servicio:</strong></td><td style="padding: 8px 0; color: #ffffff;">${serviceType}</td></tr>
