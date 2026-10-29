@@ -609,163 +609,221 @@ export default function AdminDashboard() {
         </div>
       )}
 
-      {/* MODAL DETALLE Y RESPUESTA DE HOJA DE RECLAMACIÓN */}
+      {/* MODAL EJECUTIVO DE DETALLE Y RESPUESTA DE HOJA DE RECLAMACIÓN */}
       {selectedClaim && (
-        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-slate-900 border border-slate-700 rounded-2xl max-w-2xl w-full p-5 sm:p-6 shadow-2xl my-8 max-h-[90vh] overflow-y-auto">
-            <div className="flex items-start justify-between gap-4 border-b border-slate-800 pb-3 mb-4">
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs font-bold text-orange-400">
-                    Hoja LR-{String(selectedClaim.id).padStart(5, '0')}
-                  </span>
-                  {getStatusBadge(selectedClaim.status)}
-                </div>
-                <h3 className="text-sm sm:text-base font-bold text-white mt-1">
-                  {selectedClaim.fullName} ({selectedClaim.documentType}: {selectedClaim.documentNumber})
-                </h3>
-                <p className="text-[11px] text-slate-400">
-                  Registrado el {formatDate(selectedClaim.createdAt)} • Fecha incidente: {selectedClaim.incidentDate}
-                </p>
+        <div
+          className="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setSelectedClaim(null);
+          }}
+        >
+          <div className="bg-slate-900 border border-slate-700/80 rounded-2xl max-w-4xl w-full shadow-[0_25px_70px_rgba(0,0,0,0.75)] overflow-hidden flex flex-col max-h-[92vh]">
+            {/* Cabecera fija del modal */}
+            <div className="flex items-center justify-between gap-4 px-5 sm:px-6 py-4 bg-slate-950/90 border-b border-slate-800 shrink-0">
+              <div className="flex flex-wrap items-center gap-2.5">
+                <span className="font-mono text-xs font-extrabold px-2.5 py-1 rounded-lg bg-orange-500/15 text-orange-400 border border-orange-500/30">
+                  LR-{String(selectedClaim.id).padStart(5, '0')}
+                </span>
+                <span className="uppercase text-[10px] font-bold tracking-wider px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 border border-slate-700">
+                  {selectedClaim.claimType}
+                </span>
+                {getStatusBadge(selectedClaim.status)}
+                <span className="text-[11px] text-slate-400 hidden sm:inline ml-1">
+                  • Registrado: {formatDate(selectedClaim.createdAt)}
+                </span>
               </div>
+
               <button
                 onClick={() => setSelectedClaim(null)}
-                className="text-slate-400 hover:text-white text-sm font-bold px-2 py-1 rounded-lg bg-slate-800 cursor-pointer"
+                aria-label="Cerrar modal"
+                className="w-8 h-8 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition-colors cursor-pointer shrink-0"
               >
-                ✕
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
               </button>
             </div>
 
-            <div className="space-y-3 text-xs">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 bg-slate-950 border border-slate-800 rounded-xl p-3.5">
-                <div>
-                  <span className="text-slate-500 block text-[10px]">Correo del Consumidor:</span>
-                  <span className="text-white font-medium">{selectedClaim.email}</span>
-                </div>
-                <div>
-                  <span className="text-slate-500 block text-[10px]">Teléfono:</span>
-                  <span className="text-white font-medium">{selectedClaim.phone || 'No especificado'}</span>
-                </div>
-                <div className="sm:col-span-2">
-                  <span className="text-slate-500 block text-[10px]">Domicilio:</span>
-                  <span className="text-white">{selectedClaim.address}</span>
-                </div>
-              </div>
-
-              <div className="bg-slate-950 border border-slate-800 rounded-xl p-3.5 space-y-2">
-                <div className="flex flex-wrap justify-between gap-2">
-                  <span>
-                    <strong className="text-slate-400">Bien Contratado:</strong>{' '}
-                    <span className="text-white uppercase">{selectedClaim.goodsType}</span>
-                  </span>
-                  <span>
-                    <strong className="text-slate-400">Monto Reclamado:</strong>{' '}
-                    <span className="text-amber-400 font-bold">{selectedClaim.claimedAmount || 'No especificado'}</span>
-                  </span>
-                </div>
-                <div>
-                  <strong className="text-slate-400 block text-[11px]">Descripción del Bien:</strong>
-                  <p className="text-slate-200 mt-0.5 whitespace-pre-wrap">{selectedClaim.goodsDescription}</p>
-                </div>
-              </div>
-
-              <div className="bg-slate-950 border border-slate-800 rounded-xl p-3.5 space-y-2">
-                <div>
-                  <strong className="text-orange-400 block text-[11px] uppercase">
-                    Detalle del {selectedClaim.claimType}:
-                  </strong>
-                  <p className="text-slate-200 mt-0.5 whitespace-pre-wrap">{selectedClaim.details}</p>
-                </div>
-                <div className="pt-2 border-t border-slate-800">
-                  <strong className="text-amber-400 block text-[11px] uppercase">
-                    Pedido Concreto del Consumidor:
-                  </strong>
-                  <p className="text-slate-200 mt-0.5 whitespace-pre-wrap">{selectedClaim.request}</p>
-                </div>
-              </div>
-
-              {/* Formulario Sección 4: Respuesta del Proveedor */}
-              <form onSubmit={handleSaveClaimResponse} className="bg-slate-950 border border-orange-500/30 rounded-xl p-4 space-y-3">
-                <div className="flex items-center justify-between">
-                  <h4 className="text-xs sm:text-sm font-bold text-white">
-                    4. Observaciones y Acciones Adoptadas por AlphaSoft
-                  </h4>
-                  {selectedClaim.providerResponseDate && (
-                    <span className="text-[10px] text-emerald-400">
-                      Respondido: {selectedClaim.providerResponseDate}
+            {/* Cuerpo del modal en 2 columnas en Desktop (sin barra blanca) */}
+            <div className="p-5 sm:p-6 overflow-y-auto grid grid-cols-1 lg:grid-cols-12 gap-5 text-xs">
+              {/* Columna Izquierda (7 cols): Expediente de la Hoja de Reclamación */}
+              <div className="lg:col-span-7 space-y-4">
+                {/* 1. Identificación del Consumidor */}
+                <div className="bg-slate-950/70 border border-slate-800/90 rounded-xl p-4">
+                  <div className="flex items-center justify-between border-b border-slate-800/80 pb-2.5 mb-3">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                      1. Datos del Consumidor
                     </span>
-                  )}
-                </div>
-
-                <div>
-                  <label className="block text-[11px] font-medium text-slate-400 mb-1">
-                    Estado del Reclamo / Queja
-                  </label>
-                  <select
-                    value={responseStatus}
-                    onChange={(e) => setResponseStatus(e.target.value)}
-                    className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-orange-500"
-                  >
-                    <option value="pending">Pendiente</option>
-                    <option value="in_progress">En Proceso de Revisión</option>
-                    <option value="resolved">Atendido / Resuelto</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-[11px] font-medium text-slate-400 mb-1">
-                    Detalle de la Respuesta Oficial o Acuerdos Adoptados
-                  </label>
-                  <textarea
-                    rows="3"
-                    value={responseText}
-                    onChange={(e) => setResponseText(e.target.value)}
-                    placeholder="Escribe aquí la respuesta formal de la empresa para esta Hoja de Reclamación..."
-                    className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-orange-500 resize-y"
-                  ></textarea>
-                </div>
-
-                <label className="flex items-center gap-2 cursor-pointer pt-1">
-                  <input
-                    type="checkbox"
-                    checked={sendEmailToCustomer}
-                    onChange={(e) => setSendEmailToCustomer(e.target.checked)}
-                    className="rounded border-slate-700 bg-slate-900 text-orange-500 focus:ring-orange-500"
-                  />
-                  <span className="text-[11px] text-slate-300">
-                    Enviar copia de esta respuesta oficial por correo a <strong>{selectedClaim.email}</strong> (con copia a <code>legal@</code> y <code>rubenesteban@</code>)
-                  </span>
-                </label>
-
-                {saveMessage && (
-                  <div
-                    className={`p-2.5 rounded-lg text-xs text-center ${
-                      saveMessage.type === 'success'
-                        ? 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-300'
-                        : 'bg-red-500/10 border border-red-500/30 text-red-400'
-                    }`}
-                  >
-                    {saveMessage.text}
+                    <span className="text-[11px] font-mono text-slate-300 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">
+                      {selectedClaim.documentType}: {selectedClaim.documentNumber}
+                    </span>
                   </div>
-                )}
 
-                <div className="flex justify-end gap-2 pt-2">
-                  <button
-                    type="button"
-                    onClick={() => setSelectedClaim(null)}
-                    className="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium cursor-pointer"
-                  >
-                    Cerrar
-                  </button>
-                  <button
-                    type="submit"
-                    disabled={isSavingClaim}
-                    className="px-4 py-2 rounded-lg bg-gradient-to-r from-amber-500 via-orange-500 to-red-600 hover:from-amber-400 hover:to-red-500 text-white text-xs font-bold shadow-md cursor-pointer"
-                  >
-                    {isSavingClaim ? 'Guardando...' : 'Guardar y Notificar'}
-                  </button>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="sm:col-span-2">
+                      <span className="text-[10px] text-slate-500 block">Nombre o Razón Social</span>
+                      <span className="text-sm font-bold text-white">{selectedClaim.fullName}</span>
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-slate-500 block">Correo Electrónico</span>
+                      <a href={`mailto:${selectedClaim.email}`} className="text-orange-400 hover:underline font-medium break-all">
+                        {selectedClaim.email}
+                      </a>
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-slate-500 block">Teléfono</span>
+                      <span className="text-slate-200 font-medium">{selectedClaim.phone || 'No especificado'}</span>
+                    </div>
+                    <div className="sm:col-span-2">
+                      <span className="text-[10px] text-slate-500 block">Domicilio</span>
+                      <span className="text-slate-300">{selectedClaim.address}</span>
+                    </div>
+                  </div>
                 </div>
-              </form>
+
+                {/* 2. Bien Contratado */}
+                <div className="bg-slate-950/70 border border-slate-800/90 rounded-xl p-4">
+                  <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-2.5 mb-3">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                      2. Bien Contratado ({selectedClaim.goodsType})
+                    </span>
+                    <span className="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-0.5 rounded-md">
+                      Monto: {selectedClaim.claimedAmount ? `S/ ${selectedClaim.claimedAmount}` : 'No especificado'}
+                    </span>
+                  </div>
+                  <p className="text-slate-200 leading-relaxed whitespace-pre-wrap">
+                    {selectedClaim.goodsDescription}
+                  </p>
+                </div>
+
+                {/* 3. Detalle y Pedido */}
+                <div className="bg-slate-950/70 border border-slate-800/90 rounded-xl p-4 space-y-3.5">
+                  <div className="flex items-center justify-between border-b border-slate-800/80 pb-2">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                      3. Fundamento del Reclamo
+                    </span>
+                    <span className="text-[11px] text-slate-400">
+                      Incidente: <strong className="text-slate-200">{selectedClaim.incidentDate}</strong>
+                    </span>
+                  </div>
+
+                  <div className="pl-3 border-l-2 border-orange-500">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-orange-400 block mb-1">
+                      Detalle de los Hechos
+                    </span>
+                    <p className="text-slate-200 leading-relaxed whitespace-pre-wrap">
+                      {selectedClaim.details}
+                    </p>
+                  </div>
+
+                  <div className="pl-3 border-l-2 border-amber-400 pt-1">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 block mb-1">
+                      Pedido Concreto del Consumidor
+                    </span>
+                    <p className="text-slate-200 leading-relaxed whitespace-pre-wrap">
+                      {selectedClaim.request}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Columna Derecha (5 cols): 4. Resolución Oficial AlphaSoft */}
+              <div className="lg:col-span-5 flex flex-col">
+                <form
+                  onSubmit={handleSaveClaimResponse}
+                  className="bg-gradient-to-b from-slate-950 to-slate-900 border border-orange-500/30 rounded-xl p-4 sm:p-5 flex flex-col justify-between h-full space-y-4 shadow-inner"
+                >
+                  <div className="space-y-3.5">
+                    <div className="border-b border-slate-800 pb-2.5 flex items-center justify-between gap-2">
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-orange-400 block">
+                          Sección 4 • Uso Exclusivo
+                        </span>
+                        <h4 className="text-xs sm:text-sm font-bold text-white mt-0.5">
+                          Resolución y Respuesta Oficial
+                        </h4>
+                      </div>
+                      {selectedClaim.providerResponseDate && (
+                        <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                          {selectedClaim.providerResponseDate}
+                        </span>
+                      )}
+                    </div>
+
+                    <div>
+                      <label className="block text-[11px] font-medium text-slate-300 mb-1.5">
+                        Estado del Expediente
+                      </label>
+                      <select
+                        value={responseStatus}
+                        onChange={(e) => setResponseStatus(e.target.value)}
+                        className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-orange-500 cursor-pointer"
+                      >
+                        <option value="pending">Pendiente de Atención</option>
+                        <option value="in_progress">En Proceso de Revisión</option>
+                        <option value="resolved">Atendido / Resuelto</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-[11px] font-medium text-slate-300 mb-1.5">
+                        Observaciones y Acciones Adoptadas
+                      </label>
+                      <textarea
+                        rows="5"
+                        value={responseText}
+                        onChange={(e) => setResponseText(e.target.value)}
+                        placeholder="Redacta aquí la respuesta formal o solución adoptada por AlphaSoft Innovation..."
+                        className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-orange-500 resize-none leading-relaxed"
+                      ></textarea>
+                    </div>
+
+                    <label className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-slate-700 cursor-pointer transition-colors">
+                      <input
+                        type="checkbox"
+                        checked={sendEmailToCustomer}
+                        onChange={(e) => setSendEmailToCustomer(e.target.checked)}
+                        className="mt-0.5 rounded border-slate-700 bg-slate-950 text-orange-500 focus:ring-orange-500"
+                      />
+                      <span className="text-[11px] text-slate-300 leading-snug">
+                        Notificar por correo a <strong className="text-white">{selectedClaim.email}</strong>
+                        <span className="block text-[10px] text-slate-500 mt-0.5">
+                          Con copia automática a legal@ y rubenesteban@
+                        </span>
+                      </span>
+                    </label>
+
+                    {saveMessage && (
+                      <div
+                        className={`p-2.5 rounded-lg text-[11px] text-center font-medium ${
+                          saveMessage.type === 'success'
+                            ? 'bg-emerald-500/15 border border-emerald-500/30 text-emerald-300'
+                            : 'bg-red-500/15 border border-red-500/30 text-red-400'
+                        }`}
+                      >
+                        {saveMessage.text}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="flex items-center justify-end gap-2.5 pt-3 border-t border-slate-800/80">
+                    <button
+                      type="button"
+                      onClick={() => setSelectedClaim(null)}
+                      className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium transition-colors cursor-pointer"
+                    >
+                      Cancelar
+                    </button>
+                    <button
+                      type="submit"
+                      disabled={isSavingClaim}
+                      className="flex-1 sm:flex-none px-5 py-2 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-red-600 hover:from-amber-400 hover:to-red-500 text-white text-xs font-bold shadow-lg shadow-orange-500/20 transition-all cursor-pointer"
+                    >
+                      {isSavingClaim ? 'Procesando...' : 'Guardar y Notificar'}
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>

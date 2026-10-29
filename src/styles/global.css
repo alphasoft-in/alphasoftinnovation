@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+}
+
+/* Scrollbar corporativo oscuro y delgado */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f97316;
+}
