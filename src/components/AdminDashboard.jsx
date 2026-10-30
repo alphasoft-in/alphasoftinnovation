@@ -455,7 +455,8 @@ export default function AdminDashboard() {
                     <thead>
                       <tr className="bg-slate-50 border-b border-slate-200 text-[11px] text-slate-500 uppercase font-semibold">
                         <th className="py-3 px-4">Hoja N°</th>
-                        <th className="py-3 px-4">Fecha</th>
+                        <th className="py-3 px-4">Fecha Registro</th>
+                        <th className="py-3 px-4">Fecha Respuesta</th>
                         <th className="py-3 px-4">Tipo</th>
                         <th className="py-3 px-4">Consumidor</th>
                         <th className="py-3 px-4">Documento</th>
@@ -472,6 +473,15 @@ export default function AdminDashboard() {
                           <td className="py-3 px-4 text-slate-600 whitespace-nowrap">
                             {formatDate(claim.createdAt)}
                           </td>
+                          <td className="py-3 px-4 text-slate-600 whitespace-nowrap">
+                            {claim.providerResponseDate ? (
+                              <span className="font-semibold text-slate-800">
+                                {formatDate(claim.providerResponseDate)}
+                              </span>
+                            ) : (
+                              <span className="text-slate-400 font-mono text-[11px]">—</span>
+                            )}
+                          </td>
                           <td className="py-3 px-4">
                             <span className="uppercase font-bold text-[10px] px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200">
                               {claim.claimType}
@@ -485,22 +495,11 @@ export default function AdminDashboard() {
                             {claim.documentType}: {claim.documentNumber}
                           </td>
                           <td className="py-3 px-4">{getStatusBadge(claim.status)}</td>
-                          <td className="py-3 px-4 text-right whitespace-nowrap space-x-1.5">
-                            <button
-                              type="button"
-                              onClick={() => printClaimPdf(claim)}
-                              title="Descargar / Imprimir Hoja de Reclamación PDF"
-                              className="px-2.5 py-1.5 rounded-lg bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 font-semibold text-[11px] transition-colors cursor-pointer shadow-2xs inline-flex items-center gap-1.5"
-                            >
-                              <svg className="w-3.5 h-3.5 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
-                              </svg>
-                              PDF
-                            </button>
+                          <td className="py-3 px-4 text-right whitespace-nowrap">
                             <button
                               type="button"
                               onClick={() => openClaimModal(claim)}
-                              className={`px-3 py-1.5 rounded-lg font-semibold text-[11px] transition-colors cursor-pointer ${
+                              className={`px-3.5 py-1.5 rounded-lg font-semibold text-[11px] transition-colors cursor-pointer shadow-2xs ${
                                 claim.status === 'resolved'
                                   ? 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300'
                                   : 'bg-orange-50 hover:bg-orange-100 text-orange-600 border border-orange-200'
@@ -636,6 +635,11 @@ export default function AdminDashboard() {
                   {getStatusBadge(selectedClaim.status)}
                   <span className="text-[11px] text-slate-500 hidden sm:inline ml-1">
                     • Registrado: {formatDate(selectedClaim.createdAt)}
+                    {selectedClaim.providerResponseDate && (
+                      <span className="text-emerald-700 font-semibold ml-2">
+                        • Respuesta: {formatDate(selectedClaim.providerResponseDate)}
+                      </span>
+                    )}
                   </span>
                 </div>
 
@@ -767,7 +771,7 @@ export default function AdminDashboard() {
                           </div>
                           {selectedClaim.providerResponseDate && (
                             <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-white text-emerald-800 border border-emerald-300 shadow-2xs">
-                              {selectedClaim.providerResponseDate}
+                              Fecha de Respuesta: {formatDate(selectedClaim.providerResponseDate)}
                             </span>
                           )}
                         </div>
