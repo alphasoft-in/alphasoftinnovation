@@ -159,6 +159,21 @@ export const PATCH = async ({ request }) => {
     const responseDate = getNowPeruDateTime();
 
     if (db) {
+      const existing = await db
+        .select()
+        .from(claims)
+        .where(eq(claims.id, Number(id)))
+        .limit(1);
+
+      if (existing.length > 0 && existing[0].status === 'resolved') {
+        return new Response(
+          JSON.stringify({
+            error: 'Este expediente ya fue atendido y resuelto formalmente. Por normativa legal (Ley N° 29571), no admite modificaciones.'
+          }),
+          { status: 400, headers: { 'Content-Type': 'application/json' } }
+        );
+      }
+
       await db
         .update(claims)
         .set({

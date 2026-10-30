@@ -338,3 +338,4 @@ export function printClaimPdf(claim) {
     printWindow.document.close();
   }
 }
+
