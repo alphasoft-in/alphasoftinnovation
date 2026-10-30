@@ -34,7 +34,7 @@ export function printClaimPdf(claim) {
       background: #f1f5f9;
       font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       font-size: 11px;
-      line-height: 1.38;
+      line-height: 1.35;
       color: #0f172a;
     }
     .no-print-bar {
@@ -87,7 +87,9 @@ export function printClaimPdf(claim) {
         margin: 0 !important;
         padding: 0 !important;
         width: 210mm !important;
-        height: 297mm !important;
+        height: 100% !important;
+        max-height: 297mm !important;
+        overflow: hidden !important;
       }
       .no-print-bar {
         display: none !important;
@@ -95,32 +97,52 @@ export function printClaimPdf(claim) {
       .sheet {
         width: 190mm !important;
         max-width: 190mm !important;
-        margin: 6mm auto !important;
-        padding: 6mm 8mm !important;
+        margin: 0 auto !important;
+        padding: 8mm 0 0 0 !important;
         border: none !important;
         box-shadow: none !important;
         page-break-inside: avoid !important;
+        page-break-after: avoid !important;
+        page-break-before: avoid !important;
+        break-inside: avoid !important;
+        break-after: avoid !important;
         box-sizing: border-box !important;
+      }
+      table, tr, td, div {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      .signatures-table {
+        page-break-inside: avoid !important;
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+      }
+      .legal-footer {
+        page-break-inside: avoid !important;
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
       }
     }
     .header-table {
       width: 100%;
       table-layout: fixed;
       border-collapse: collapse;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .header-table td {
       vertical-align: middle;
     }
     .company-title {
-      font-size: 16px;
+      font-size: 15.5px;
       font-weight: 800;
       color: #0f172a;
       letter-spacing: -0.2px;
       margin: 0 0 2px 0;
     }
     .company-sub {
-      font-size: 10px;
+      font-size: 9.5px;
       line-height: 1.35;
       color: #334155;
       margin: 0;
@@ -129,13 +151,13 @@ export function printClaimPdf(claim) {
       border: 2px solid #ea580c;
       background: #fff7ed;
       border-radius: 6px;
-      padding: 7px 12px;
+      padding: 6px 10px;
       text-align: center;
       width: 100%;
       box-sizing: border-box;
     }
     .sheet-number-title {
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 800;
       color: #c2410c;
       text-transform: uppercase;
@@ -143,7 +165,7 @@ export function printClaimPdf(claim) {
       margin: 0;
     }
     .sheet-number {
-      font-size: 19px;
+      font-size: 18px;
       font-weight: 800;
       color: #9a3412;
       margin: 1px 0;
@@ -152,37 +174,37 @@ export function printClaimPdf(claim) {
     .section-title {
       background: #0f172a;
       color: #ffffff;
-      padding: 4px 8px;
-      font-size: 11px;
+      padding: 3.5px 8px;
+      font-size: 10.5px;
       font-weight: bold;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-top: 10px;
-      margin-bottom: 4px;
+      margin-top: 8px;
+      margin-bottom: 3px;
       border-radius: 3px;
     }
     .section-title-company {
       background: #1e293b;
       color: #ffffff;
-      padding: 4px 8px;
-      font-size: 11px;
+      padding: 3.5px 8px;
+      font-size: 10.5px;
       font-weight: bold;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-top: 10px;
-      margin-bottom: 4px;
+      margin-top: 8px;
+      margin-bottom: 3px;
       border-radius: 3px;
     }
     table.data-table {
       width: 100%;
       table-layout: fixed;
       border-collapse: collapse;
-      margin-bottom: 5px;
+      margin-bottom: 4px;
     }
     table.data-table td, table.data-table th {
       border: 1px solid #94a3b8;
-      padding: 5px 8px;
-      font-size: 10.5px;
+      padding: 4px 8px;
+      font-size: 10px;
       vertical-align: middle;
       word-wrap: break-word;
     }
@@ -193,17 +215,17 @@ export function printClaimPdf(claim) {
     }
     .box-label {
       font-weight: bold;
-      font-size: 10.5px;
+      font-size: 10px;
       color: #1e293b;
-      margin: 5px 0 2px 0;
+      margin: 4px 0 2px 0;
     }
     .box-content {
       border: 1px solid #94a3b8;
-      padding: 7px 10px;
-      min-height: 48px;
-      font-size: 10.5px;
-      line-height: 1.4;
-      margin-bottom: 5px;
+      padding: 6px 10px;
+      min-height: 42px;
+      font-size: 10px;
+      line-height: 1.38;
+      margin-bottom: 4px;
       background: #fafafa;
       white-space: pre-wrap;
       word-break: break-word;
@@ -214,8 +236,8 @@ export function printClaimPdf(claim) {
     .signatures-table {
       width: 100%;
       table-layout: fixed;
-      margin-top: 32px;
-      margin-bottom: 8px;
+      margin-top: 22px;
+      margin-bottom: 6px;
       border-collapse: collapse;
     }
     .signatures-table td {
@@ -231,18 +253,20 @@ export function printClaimPdf(claim) {
       margin-right: auto;
     }
     .sig-text {
-      font-size: 10.5px;
+      font-size: 10px;
       color: #1e293b;
       font-weight: bold;
       line-height: 1.3;
     }
     .legal-footer {
-      font-size: 8px;
+      font-size: 7.8px;
       color: #475569;
-      line-height: 1.35;
-      margin-top: 10px;
+      line-height: 1.32;
+      margin-top: 8px;
       border-top: 1px dashed #cbd5e1;
-      padding-top: 6px;
+      padding-top: 5px;
+      margin-bottom: 0;
+      padding-bottom: 0;
     }
   </style>
 </head>
@@ -373,7 +397,7 @@ export function printClaimPdf(claim) {
     </table>
 
     <div class="box-label">Detalle de la Respuesta Oficial o Acuerdos Adoptados:</div>
-    <div class="box-content" style="min-height: 58px; background: #ffffff;">${claim.providerResponse || 'En proceso de atención dentro del plazo legal establecido.'}</div>
+    <div class="box-content" style="min-height: 48px; background: #ffffff;">${claim.providerResponse || 'En proceso de atención dentro del plazo legal establecido.'}</div>
 
     <table class="signatures-table">
       <colgroup>
@@ -387,7 +411,7 @@ export function printClaimPdf(claim) {
         </td>
         <td>
           <div class="sig-line"></div>
-          <div class="sig-text">AlphaSoft Innovation Technology<br/><span style="font-size: 8.5px; font-weight: normal; color: #475569;">Representante / Área Legal</span></div>
+          <div class="sig-text">AlphaSoft Innovation Technology<br/><span style="font-size: 8px; font-weight: normal; color: #475569;">Representante / Área Legal</span></div>
         </td>
       </tr>
     </table>
