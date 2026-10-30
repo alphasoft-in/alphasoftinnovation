@@ -72,13 +72,13 @@ export function printClaimPdf(claim) {
       cursor: pointer;
     }
     .sheet {
-      width: 202mm;
-      max-width: 202mm;
+      width: 190mm;
+      max-width: 190mm;
       margin: 15px auto;
-      padding: 6mm 8mm;
+      padding: 8mm 10mm;
       background: #ffffff;
-      border: 1.5px solid #0f172a;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+      border: none;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
       box-sizing: border-box;
     }
     @media print {
@@ -93,11 +93,11 @@ export function printClaimPdf(claim) {
         display: none !important;
       }
       .sheet {
-        width: 202mm !important;
-        max-width: 202mm !important;
-        margin: 4mm auto !important;
-        padding: 5mm 7mm !important;
-        border: 1.5px solid #0f172a !important;
+        width: 190mm !important;
+        max-width: 190mm !important;
+        margin: 6mm auto !important;
+        padding: 6mm 8mm !important;
+        border: none !important;
         box-shadow: none !important;
         page-break-inside: avoid !important;
         box-sizing: border-box !important;
