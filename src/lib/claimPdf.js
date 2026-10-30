@@ -14,6 +14,9 @@ export function printClaimPdf(claim) {
 <head>
   <meta charset="UTF-8">
   <title>Hoja de Reclamación ${claimIdFormatted} - AlphaSoft Innovation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     @page {
       size: A4 portrait;
@@ -29,7 +32,7 @@ export function printClaimPdf(claim) {
       padding: 0;
       width: 100%;
       background: #f1f5f9;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       font-size: 11px;
       line-height: 1.38;
       color: #0f172a;
@@ -139,10 +142,10 @@ export function printClaimPdf(claim) {
     }
     .sheet-number {
       font-size: 19px;
-      font-weight: 900;
-      font-family: monospace;
+      font-weight: 800;
       color: #9a3412;
       margin: 1px 0;
+      letter-spacing: -0.5px;
     }
     .section-title {
       background: #0f172a;

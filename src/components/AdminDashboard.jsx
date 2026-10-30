@@ -467,7 +467,7 @@ export default function AdminDashboard() {
                     <tbody className="divide-y divide-slate-200">
                       {filteredClaims.map((claim) => (
                         <tr key={claim.id} className="hover:bg-slate-50/80 transition-colors">
-                          <td className="py-3 px-4 font-mono font-bold text-orange-600">
+                          <td className="py-3 px-4 font-bold text-orange-600">
                             LR-{String(claim.id).padStart(5, '0')}
                           </td>
                           <td className="py-3 px-4 text-slate-600 whitespace-nowrap">
@@ -479,7 +479,7 @@ export default function AdminDashboard() {
                                 {formatDate(claim.providerResponseDate)}
                               </span>
                             ) : (
-                              <span className="text-slate-400 font-mono text-[11px]">—</span>
+                              <span className="text-slate-400 text-[11px]">—</span>
                             )}
                           </td>
                           <td className="py-3 px-4">
@@ -626,7 +626,7 @@ export default function AdminDashboard() {
               {/* Cabecera fija del modal */}
               <div className="flex items-center justify-between gap-4 px-5 sm:px-6 py-4 bg-slate-50 border-b border-slate-200 shrink-0">
                 <div className="flex flex-wrap items-center gap-2.5">
-                  <span className="font-mono text-xs font-extrabold px-2.5 py-1 rounded-lg bg-orange-50 text-orange-600 border border-orange-200">
+                  <span className="text-xs font-extrabold px-2.5 py-1 rounded-lg bg-orange-50 text-orange-600 border border-orange-200">
                     LR-{String(selectedClaim.id).padStart(5, '0')}
                   </span>
                   <span className="uppercase text-[10px] font-bold tracking-wider px-2.5 py-1 rounded-lg bg-slate-200/70 text-slate-700 border border-slate-300">
@@ -678,7 +678,7 @@ export default function AdminDashboard() {
                       <span className="text-[11px] font-bold uppercase tracking-wider text-slate-600">
                         1. Datos del Consumidor
                       </span>
-                      <span className="text-[11px] font-mono font-semibold text-slate-700 bg-white px-2.5 py-0.5 rounded border border-slate-200">
+                      <span className="text-[11px] font-semibold text-slate-700 bg-white px-2.5 py-0.5 rounded border border-slate-200">
                         {selectedClaim.documentType}: {selectedClaim.documentNumber}
                       </span>
                     </div>
@@ -757,12 +757,12 @@ export default function AdminDashboard() {
                     /* Vista de Expediente Atendido */
                     <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 sm:p-5 flex flex-col justify-between h-full space-y-4">
                       <div className="space-y-3.5">
-                        <div className="flex items-center justify-between border-b border-slate-200 pb-2.5">
-                          <span className="text-[11px] font-bold uppercase tracking-wider text-slate-600">
+                        <div className="flex items-center justify-between border-b border-slate-200 pb-2.5 gap-2">
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-slate-600 truncate">
                             4. Respuesta de la Empresa
                           </span>
                           {selectedClaim.providerResponseDate && (
-                            <span className="text-[11px] font-mono font-semibold text-slate-700 bg-white px-2.5 py-0.5 rounded border border-slate-200">
+                            <span className="text-[10px] font-semibold text-slate-700 bg-white px-2 py-0.5 rounded border border-slate-200 shrink-0 whitespace-nowrap">
                               {formatDate(selectedClaim.providerResponseDate)}
                             </span>
                           )}
