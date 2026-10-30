@@ -13,14 +13,14 @@ export function printClaimPdf(claim) {
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Hoja de Reclamación ${claimIdFormatted} - AlphaSoft Innovation</title>
+  <title>Hoja de Reclamación ${claimIdFormatted}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     @page {
       size: A4 portrait;
-      margin: 10mm;
+      margin: 0;
     }
     * {
       box-sizing: border-box;
@@ -72,12 +72,12 @@ export function printClaimPdf(claim) {
       cursor: pointer;
     }
     .sheet {
-      width: 190mm;
-      max-width: 190mm;
-      margin: 20px auto;
-      padding: 10mm 12mm;
+      width: 202mm;
+      max-width: 202mm;
+      margin: 15px auto;
+      padding: 6mm 8mm;
       background: #ffffff;
-      border: 2px solid #0f172a;
+      border: 1.5px solid #0f172a;
       box-shadow: 0 4px 20px rgba(0,0,0,0.12);
       box-sizing: border-box;
     }
@@ -86,19 +86,21 @@ export function printClaimPdf(claim) {
         background: #ffffff !important;
         margin: 0 !important;
         padding: 0 !important;
-        width: 100% !important;
+        width: 210mm !important;
+        height: 297mm !important;
       }
       .no-print-bar {
         display: none !important;
       }
       .sheet {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 auto !important;
-        padding: 8mm 10mm !important;
-        border: 2px solid #0f172a !important;
+        width: 202mm !important;
+        max-width: 202mm !important;
+        margin: 4mm auto !important;
+        padding: 5mm 7mm !important;
+        border: 1.5px solid #0f172a !important;
         box-shadow: none !important;
         page-break-inside: avoid !important;
+        box-sizing: border-box !important;
       }
     }
     .header-table {
