@@ -1,16 +1,16 @@
 import { motion } from 'framer-motion';
 
 const technologies = [
-  { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-  { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
-  { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-  { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
-  { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-  { name: 'TailwindCSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
-  { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
-  { name: 'Astro', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/astro/astro-original.svg' },
-  { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
-  { name: 'AWS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' }
+  { name: 'JavaScript', icon: '/icons/tech/javascript.svg' },
+  { name: 'TypeScript', icon: '/icons/tech/typescript.svg' },
+  { name: 'React', icon: '/icons/tech/react.svg' },
+  { name: 'Node.js', icon: '/icons/tech/nodejs.svg' },
+  { name: 'Python', icon: '/icons/tech/python.svg' },
+  { name: 'TailwindCSS', icon: '/icons/tech/tailwindcss.svg' },
+  { name: 'PostgreSQL', icon: '/icons/tech/postgresql.svg' },
+  { name: 'Astro', icon: '/icons/tech/astro.svg' },
+  { name: 'Java', icon: '/icons/tech/java.svg' },
+  { name: 'AWS', icon: '/icons/tech/aws.svg' }
 ];
 
 export default function Technologies() {
@@ -55,7 +55,7 @@ export default function Technologies() {
               key={index} 
               className="flex items-center gap-2.5 bg-slate-900 border border-slate-800 hover:border-orange-500/40 px-4 py-2 rounded-full hover:bg-slate-800/80 transition-colors cursor-default"
             >
-              <img src={tech.icon} alt={tech.name} className="w-6 h-6 object-contain" />
+              <img src={tech.icon} alt={tech.name} className="w-6 h-6 object-contain" width="24" height="24" loading="lazy" />
               <span className="text-slate-300 text-xs sm:text-sm font-medium">{tech.name}</span>
             </div>
           ))}
